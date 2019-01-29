@@ -3,19 +3,18 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.timestamps null: false
 
-
       t.string :email, null: false
-      t.string :users, :first_name, :string
-      t.string :users, :last_name, :string
-      t.string :users, :avatar, :string
-      t.string :users, :interest, :string
+      t.string :first_name, :string
+      t.string :last_name, :string
+      t.string :avatar, :string
+      t.string :interest, :string
 
       t.string :encrypted_password, limit: 128, null: false
       t.string :confirmation_token, limit: 128
       t.string :remember_token, limit: 128, null: false
     end
 
-    add_index :users, :email
-    add_index :users, :remember_token
+    add_index :email
+    add_index :remember_token
   end
 end
