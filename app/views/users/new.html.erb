@@ -3,19 +3,15 @@
 <div class="sign-up">
   <h2>Sign-up</h2>
 
-  <div class= "sign-up-table"
+  <div class= "sign-up-table">
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
     <div class="submit-field">
       <%= form.submit %>
     </div>
-
-
+  <% end %>
   </div>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
-  <% end %>
+
 </div>

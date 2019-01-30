@@ -60,7 +60,7 @@ end
 
 	def user_from_params 
 
-		params.require(:user).permit(:first_name, :last_name, :email, :password, :image)
+		params.require(:user).permit(:first_name, :last_name, :email, :password, :interest, :avatar)
 #need to add image here? yes
 	end 
 
