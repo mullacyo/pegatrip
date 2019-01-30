@@ -16,13 +16,16 @@
   </head>
 
   <body>
-    <div id="header">
-      <% if signed_in? -%>
-        <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-      <% else -%>
-        <%= link_to t(".sign_in"), sign_in_path %>
-      <% end -%>
-    </div>
+      <nav class="navbar container-fluid flex flex-grow" style="margin-top: 3vh">
+        <img src="Pegatrip_Logo3_Center.png" class="d-inline-block" style="height: 4vh; margin-left: 8vw"/>
+        <div id="header" class="d-inline-block justify-content-end" style="margin-right: 8vw">
+          <% if signed_in? -%>
+            <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+          <% else -%>
+            <%= link_to t(".sign_in"), sign_in_path %>
+          <% end -%>
+        </div>
+      </nav>
 
     <div id="flash">
       <% flash.each do |key, value| -%>
@@ -30,9 +33,6 @@
       <% end %>
     </div>
 
-    <nav class="navbar container-fluid">
-      <img src="Pegatrip_Logo3_Center.png" style="height: 4vh; margin-left: 8vw; margin-top: 3vh"/>
-    </nav>
 
     <%= yield %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
