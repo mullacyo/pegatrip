@@ -48,14 +48,14 @@
     end
 
   # Seed Course/Trip realtionships
-  	course_trip = {}
+  	courses_trip = {}
   	default_trip_id = 1
   	ActiveRecord::Base.transaction do
 		15.times do
-
-			Course_Trip.create(course_trip)
+			courses_trip['course_id'] = rand(1..30)
+			courses_trip['trip_id'] = default_trip_id
+			CoursesTrip.create(course_trip)
 			default_trip_id += 1
 		end  		
-
   	end
 
