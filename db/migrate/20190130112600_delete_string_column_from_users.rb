@@ -3,6 +3,5 @@ class DeleteStringColumnFromUsers < ActiveRecord::Migration[5.2]
 
   remove_column	:users, :string
 
-
   end
 end

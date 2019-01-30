@@ -8,8 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name, :string
       t.string :avatar, :string
       t.string :interest, :string
-
-      
+     
     end
 
     add_index :users, :email

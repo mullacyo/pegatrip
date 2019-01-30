@@ -13,8 +13,7 @@
 #This seeding exists to test database relationships are working. Locations do not match up, and descriptions are pure filler.
  #  # Seed Dummy Users
  #    user = {}
- #    user['encrypted_password'] = 'password'
- #    user['remember_token'] = 'token'
+ #    user['password'] = 'password'
 
 	# ActiveRecord::Base.transaction do
 	#   5.times do 
