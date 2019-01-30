@@ -1,0 +1,10 @@
+<h2>Edit Profile </h2>
+
+
+	<%= form_for(@user) do |form| %>
+		<%= render partial: '/users/form', object: form %>
+
+		<div class="submit-field">
+	      <%= form.submit "Save changes" %>
+	    </div>
+  	<% end %>
