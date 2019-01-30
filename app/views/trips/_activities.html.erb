@@ -1,0 +1,14 @@
+<h3>Activities</h3>
+
+<div class="activities-container d-flex" style=" flex-grow">
+    <% @activities.each do |a| %>
+        <div class="card" style="width: 18rem; d-inline-block">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><%=a.title%></h5>
+                    <p class="card-text"><%=a.description%></p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+        </div>
+    <% end %>
+</div>
