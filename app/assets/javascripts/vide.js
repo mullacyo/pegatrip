@@ -164,7 +164,7 @@
         // Set video wrapper styles
         let position = parsePosition(this.settings.position);
         this.wrapper.css({
-            "position": "fixed",
+            "position": "relative",
             "z-index": -1,
             "top": 0,
             "left": 0,
