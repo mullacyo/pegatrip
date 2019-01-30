@@ -3,6 +3,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
     create_table :courses do |t|
 
       t.timestamps null: false
+      
   	  t.string :title, null: false
 	  t.string :description, null: false
 	  t.string :location, null: false

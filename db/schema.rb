@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2019_01_30_112600) do
     t.string "link"
   end
 
+  create_table "courses_trips", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "course_id"
+    t.bigint "trip_id"
+    t.index ["course_id"], name: "index_courses_trips_on_course_id"
+    t.index ["trip_id"], name: "index_courses_trips_on_trip_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,5 +75,7 @@ ActiveRecord::Schema.define(version: 2019_01_30_112600) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "courses_trips", "courses"
+  add_foreign_key "courses_trips", "trips"
   add_foreign_key "trips", "users"
 end
