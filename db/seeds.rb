@@ -56,7 +56,7 @@
 		15.times do
 			courses_trip['course_id'] = rand(1..30)
 			courses_trip['trip_id'] = default_trip_id
-			CoursesTrip.create(course_trip)
+			CoursesTrip.create(courses_trip)
 			default_trip_id += 1
 		end  		
   	end
