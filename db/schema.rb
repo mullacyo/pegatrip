@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 2019_01_30_112600) do
     t.json "pictures"
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "location", null: false
+    t.json "pictures"
+    t.string "type", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "duration"
+    t.string "link"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
