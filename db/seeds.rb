@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+#FOR TESTING ONLY 
 #This seeding exists to test database relationships are working. Locations do not match up, and descriptions are pure filler.
  #  # Seed Dummy Users
  #    user = {}
