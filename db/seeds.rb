@@ -47,3 +47,15 @@
     	end
     end
 
+  # Seed Course/Trip realtionships
+  	course_trip = {}
+  	default_trip_id = 1
+  	ActiveRecord::Base.transaction do
+		15.times do
+
+			Course_Trip.create(course_trip)
+			default_trip_id += 1
+		end  		
+
+  	end
+
