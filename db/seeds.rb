@@ -10,7 +10,9 @@
 #This seeding exists to test database relationships are working
   # Seed Dummy Users
     user = {}
-    user['password'] = 'password'
+    user['encrypted_password'] = 'password'
+    user['remember_token'] = 'token'
+
 	ActiveRecord::Base.transaction do
 	  5.times do 
 	    user['first_name'] = Faker::Name.first_name 
