@@ -29,7 +29,7 @@
     		course['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
     		course['title'] = Faker::Hipster.sentence
     		course['description'] = Faker::Hipster.paragraph(2, false, 4)
-    		course['type'] = ["Coding", "Karate", "Yoga", "Horse riding", "Mountain Climbing", "Arts"].sample
+    		course['course_type'] = ["Coding", "Karate", "Yoga", "Horse riding", "Mountain Climbing", "Arts"].sample
     		course['start_date'] = Faker::Date.forward(rand(1..180))
     		course['end_date'] = course['start_date'] + rand(7..120)
     		course['duration'] = course['end_date'] - course['start_date']

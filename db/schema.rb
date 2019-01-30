@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_01_30_112600) do
     t.string "description", null: false
     t.string "location", null: false
     t.json "pictures"
-    t.string "type", null: false
+    t.string "course_type", null: false
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "duration"
