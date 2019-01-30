@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+#vider-element {
+	height: 15vh!important;
+	width: 1430px!important;
+}
+
+#vider-element > div {
+	height: 50vh!important;
+	top: 3vh!important;
+}
