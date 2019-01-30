@@ -1,4 +1,4 @@
 class ActionsTrip < ApplicationRecord
-  belongs_to :course
+  belongs_to :action
   belongs_to :trip
 end
