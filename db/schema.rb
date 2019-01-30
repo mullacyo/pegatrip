@@ -15,6 +15,28 @@ ActiveRecord::Schema.define(version: 2019_01_30_112600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "actions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type", null: false
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "location", null: false
+    t.datetime "duration"
+    t.integer "intensity"
+    t.integer "price"
+    t.json "pictures"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "location", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,4 +52,5 @@ ActiveRecord::Schema.define(version: 2019_01_30_112600) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "trips", "users"
 end
