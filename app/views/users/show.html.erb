@@ -10,8 +10,13 @@
 		<p>Email: <%=@user.email%> </p>
 
 		<p>Interest: <%=@user.interest%></p>
+		 <div>
+		<button><%= link_to 'Edit profile', edit_user_path %></button>
+		<%= button_to 'Delete', @user, method: :delete, data: {confirm: "You sure?"} %>
+		</div>
 
    </div>
+
 	<div class="col-6">
 		<div class= "profile-pic-container">
 
@@ -24,6 +29,7 @@
 		</div>
 	</div>
  </div>
+
 </div>
 
 
