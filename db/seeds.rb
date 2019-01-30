@@ -61,3 +61,13 @@
 		end  		
   	end
 
+    # Seed Action/Trip realtionships
+  	actions_trip = {}
+  	ActiveRecord::Base.transaction do
+		45.times do
+			actions_trip['action_id'] = rand(1..10)
+			actions_trip['trip_id'] = rand(1..15)
+			CoursesTrip.create(actions_trip)
+		end  		
+  	end
+
