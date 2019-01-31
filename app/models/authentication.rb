@@ -2,6 +2,9 @@ class Authentication < ApplicationRecord
   belongs_to :user
 
 
+validates_presence_of :user_id, :uid, :provider
+  validates_uniqueness_of :uid, :scope => :provider
+  
 
   def self.create_with_omniauth(auth_hash)
     self.new(
@@ -16,5 +19,5 @@ class Authentication < ApplicationRecord
     self.save
   end
 
-  
+
 end

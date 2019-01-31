@@ -5,11 +5,13 @@ before_action :correct_user, only: [:edit, :update, :destroy]
 
 
 def new
+
 	@user = User.new
 end 
 
 
 def create
+
 	@user = User.new(user_from_params)
 	if @user.save
 		sign_in @user

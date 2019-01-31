@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
 get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-
-
-  
+# get '/logout', to: 'sessions#destroy', via: [:get, :post]
+get 'auth/failure', to: redirect('/')
+    
 end
 
