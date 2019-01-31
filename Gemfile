@@ -10,6 +10,7 @@ gem "clearance"
 gem 'faker'
 
 # For Yelp API usage
+gem 'http'
 gem 'httparty'
 
 

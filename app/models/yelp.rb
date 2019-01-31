@@ -1,2 +1,3 @@
-class Yelp < ApplicationRecord
+class Yelp < Action
+	include HTTParty
 end

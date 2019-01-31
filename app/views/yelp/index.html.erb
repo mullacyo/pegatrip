@@ -10,11 +10,11 @@
 	</thead>
 
 	<tbody>
-		<% @yelps.each do |y|%>
+		<% @response.each do |y|%>
 			<tr>
 				<td><%= y["name"] %></td>
-				<td><%= y["address"] %></td>
-				<td><%= y["star_rating"] %></td>
+				<td><%= y["location"]["address1"] %></td>
+				<td><%= y["rating"] %></td>
 			</tr>
 		<%end%>
 	</tbody>
