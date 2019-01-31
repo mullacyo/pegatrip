@@ -1,9 +1,21 @@
-/*applies to user profile page */
-#profilepic{
 
-width:150px; 
-height:150px; 
-border-radius:50%;
+.sign-up-table {
+
+
+
+
+
+}
+
+/** { border: 1px solid red; }
+*/
+
+.profilepic{
+
+	width:150px; 
+	height:150px; 
+	border-radius:50%;
+
 
 }
 
@@ -23,7 +35,30 @@ border-radius:50%;
 
 }
 
+<<<<<<< HEAD
 .profile-pic-container {
 	margin:10px;
 
+=======
+.profile_pic_navbar{
+	width:40px; 
+	height:40px; 
+	border-radius:50%;
+}
+
+.card{
+	width: 50%;
+
+}
+
+.button-login {
+  float: left;
+  border: none;
+  color: gray;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+>>>>>>> fixed design of the login pop_up, added profile pic in the nav-bar
 }

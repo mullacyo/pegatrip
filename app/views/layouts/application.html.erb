@@ -4,6 +4,7 @@
     <title>Pegatrip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script
     src="https://code.jquery.com/jquery-3.3.1.js"
@@ -20,26 +21,58 @@
     <nav class="navbar container-fluid flex flex-grow" style="margin-top: 3vh">
      
       <img src="/plogo_shadow.png" class="d-inline-block" style="height: 7vh; margin-left: 8vw"/>
-      
-       <div id="header" class="d-inline-block justify-content-end" style="margin-right: 8vw">
-         <% if signed_in? %>
-          <%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => "btn btn-outline", :style => "color: #3ac9c6; border-color: #3ac9c6" %>
-         <% else -%>
+
+      <div id="header profile-pic-and-sign-button" class="d-flex justify-content-end" style="margin-right: 8vw">
+        
+            <% if signed_in? && current_user.avatar.present? %>
+              <li class="d-inline-block nav-item dropdown">
+                <div class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= image_tag current_user.avatar.url, :class => "profile_pic_navbar" %>
+                </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="<%= user_path(current_user.id) %>">My trips</a>
+                  <a class="dropdown-item" href="<%= edit_user_path(current_user.id) %>">Edit profile</a>
+                  <div class="dropdown-divider"></div>
+                  <%= button_to "Delete account", user_path(current_user.id), method: :delete, data: {confirm: 'Are you sure you want to delete your account?'}, :class => "dropdown-item btn btn-danger"  %>
+                </div>
+              </li>
+
+              <% elsif signed_in? && current_user.avatar.url == nil %>
+                <li class="d-inline-block nav-item dropdown">
+                  <div class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= image_tag '/default_profile.png', :class => "profile_pic_navbar"  %>
+                  </div>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="<%= user_path(current_user.id) %>">My trips</a>
+                    <a class="dropdown-item" href="<%= edit_user_path(current_user.id) %>">Edit profile</a>
+                    <div class="dropdown-divider"></div>
+                    <%= button_to "Delete account", user_path(current_user.id), method: :delete, data: { confirm: 'Are you sure you want to delete your account?' }, :class => "dropdown-item btn btn-danger"  %>
+                  </div>
+                </li>
+              <% end %>
+
+        <div class="d-inline-block" style="margin: auto">
+          <% if signed_in? %>
+            <%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => "btn btn-outline", :style => "color: #3ac9c6; border-color: #3ac9c6" %>
+          <% else -%>
             <div align="center">  
-              <button type="button" name="login" id="login" class="btn btn-outline" style="color: #3ac9c6; border-color: #3ac9c6" data-toggle="modal" data-target="#loginModal" onclick="show_login()">Sign in</button>  
+              <button type="button" name="login" id="login" class="btn btn-outline" style="color: #3ac9c6; border-color: #3ac9c6" data-toggle="modal" data-target="#loginModal" onclick="show_login()">Login</button>  
             </div>
+        </div>
+      </div>
 
             <div id="loginModal" class="modal fade" role="dialog">  
               <div class="modal-dialog">  
            <!-- Modal content-->  
                    <div class="modal-content">  
                         <div class="modal-header"> 
-                          <div class="container d-inline-block">
-                             <input type="button" class="btn btn-outline-secondary" onclick="show_login();" value="Login"> 
-                             <input type="button" class="btn btn-outline-secondary" onclick="show_signup();" value="Sign up">
+                          <div class="container-fluid d-inline-block d-flex justify-content-center pr-0">
+                             <input type="button"  class="button-login" style="width: 50%" onclick="show_login();"  value="Sign in"> 
+                             <input type="button" class="button-login" style="width: 50%; border-left: 1px solid gray" onclick="show_signup();" value="Sign up">
                              </div>
                              <button type="button" class="close" data-dismiss="modal">&times;</button> 
-                        </div>  
+                        </div> 
+                        <br/> 
                         <div class="modal-body">  
                           <section id="login_div">
                             <%= render partial: '/sessions/form' %>
@@ -56,13 +89,14 @@
         </div>
       </nav>
 
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
-      <% end %>
-    </div>
+  
+    <% flash.each do |key, value| %>
+        <div class=" alert alert-<%=key%>">
+           <%= value %>
+        </div>
+     <% end %>
 
-
+ 
     <%= yield %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

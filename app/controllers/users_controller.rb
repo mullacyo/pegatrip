@@ -25,7 +25,6 @@ end
 
 
 def index
-
 	@users = User.all
 end 
 
@@ -52,7 +51,7 @@ end
 def destroy
 	@user = User.find(params[:id])
 	@user.destroy
-	flash[:success] = "User deleted"
+	flash[:danger] = "User deleted"
 	redirect_to root_path
 
 end 
