@@ -14,3 +14,15 @@
 //= require turbolinks
 //= require_tree .
 
+function show_signup()
+{
+ $("#login_div").fadeOut('fast', function() {
+  $("#register_div").fadeIn();
+ });
+}
+function show_login()
+{
+ $("#register_div").fadeOut('fast', function() {
+  $("#login_div").fadeIn();
+ });
+}

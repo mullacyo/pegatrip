@@ -1,17 +1,7 @@
 
-
 <div class="sign-up">
   <h2>Sign-up</h2>
-
   <div class= "sign-up-table">
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-  <% end %>
+    <%= render partial: '/users/form'%>
   </div>
-
-
 </div>

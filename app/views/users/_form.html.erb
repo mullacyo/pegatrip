@@ -1,34 +1,41 @@
+<%= form_for @user do |form| %>
+<div class = "container col-md-10 text-center">
+  <div class="text-field">	
+    <%= form.label :first_name, :style => "font-size: 18px"%>
+    <%= form.text_field :first_name, type: 'form-control', :class => "form-control" %>
+  </div>
+ <br/>
 
+  <div class="text-field">	
+    <%= form.label :last_name, :style => "font-size: 18px" %>
+    <%= form.text_field :last_name, type: 'form-control', :class => "form-control" %>
+  </div>
+ <br/>
 
-<div class="text-field">	
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name, type: 'form-control' %>
+  <div class="text-field">
+    <%= form.label :email, :style => "font-size: 18px" %>
+    <%= form.text_field :email, type: 'email', :class => "form-control" %>
+  </div>
+ <br/>
+  <div class="password-field">
+    <%= form.label :password, :style => "font-size: 18px" %>
+    <%= form.password_field :password, :class => "form-control" %>
+  </div>
+ <br/>
+  <div class="text-field">
+    <%= form.label :interest, :style => "font-size: 18px" %>
+    <%= form.text_field :interest, :class => "form-control" %>
+  </div>
+ <br/>
+
+  <div class= "avatar-field">
+  <%= form.label :avatar, :style => "font-size: 18px" %>
+  <%= form.file_field :avatar %>
+  </div>
+ <br/>
+  <div >
+        <%= form.submit :class => "btn btn-outline", :style => "border-color: #3ac9c6; color: #3ac9c6" %>
+  </div>
 </div>
 
-
-<div class="text-field">	
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name, type: 'form-control' %>
-</div>
-
-
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
-
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
-
-<div class="text-field">
-  <%= form.label :interest %>
-  <%= form.text_field :interest %>
-</div>
-
-
-<div class= "avatar-field">
-<%= form.label :avatar %>
-<%= form.file_field :avatar %>
-</div>
+<%end%>

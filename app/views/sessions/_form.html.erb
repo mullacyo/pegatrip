@@ -1,4 +1,4 @@
-<%= form_for :session, url: session_path do |form| %>
+<%= form_for :session, :action => "", :autocomplete => "on", url: session_path do |form| %>
 <div class = "container col-md-10 text-center">
     <div class="text-field form-group">
       <%= form.label :email, :style => "font-size: 18px" %>
@@ -18,9 +18,8 @@
 
     <div class="other-links">
       <% if Clearance.configuration.allow_sign_up? %>
-        <%= link_to t(".sign_up"), sign_up_path %>
-      <% end %>
       <%= link_to t(".forgot_password"), new_password_path %>
+      <%end %>
     </div>
 <% end %>
 </div>
