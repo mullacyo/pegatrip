@@ -9,6 +9,9 @@ gem "clearance"
 # For seeding and testing database
 gem 'faker'
 
+# For Yelp API usage
+gem 'httparty'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
