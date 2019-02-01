@@ -35,11 +35,11 @@
 
 }
 
-<<<<<<< HEAD
 .profile-pic-container {
 	margin:10px;
+}
 
-=======
+
 .profile_pic_navbar{
 	width:40px; 
 	height:40px; 
@@ -60,5 +60,11 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
->>>>>>> fixed design of the login pop_up, added profile pic in the nav-bar
+  outline: none;
+}
+
+#link-to-forgot-password:hover,
+#link-to-forgot-password:focus{
+	background: none;
+	color: gray
 }

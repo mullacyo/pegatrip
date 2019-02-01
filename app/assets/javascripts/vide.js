@@ -1,4 +1,4 @@
-;(function ($, window, document, navigator) {
+$(document).on("turbolinks:load",function () {
     "use strict";
 
     /**
@@ -384,4 +384,4 @@
             $element[pluginName](path, options);
         });
     });
-})(window.jQuery, window, document, navigator);
+})

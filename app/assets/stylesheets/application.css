@@ -24,3 +24,14 @@
 	top: 3vh!important;
 }
 
+#logo-image:hover,
+#logo-image:focus{
+	color: white!important;
+	background: none!important;
+
+}
+
+
+.jumbotron{
+	height: 400px;
+}

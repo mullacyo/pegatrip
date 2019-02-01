@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Gem for backgroung video
 gem 'vider', github: 'wazery/vider'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

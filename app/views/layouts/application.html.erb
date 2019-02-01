@@ -20,7 +20,7 @@
   <body style="margin: 0px">
     <nav class="navbar container-fluid flex flex-grow" style="margin-top: 3vh">
      
-      <img src="/plogo_shadow.png" class="d-inline-block" style="height: 7vh; margin-left: 8vw"/>
+      <a id="logo-image" href="<%=root_path%>"><img src="/plogo_shadow.png" class="d-inline-block" style="height: 7vh; margin-left: 8vw"/></a>
 
       <div id="header profile-pic-and-sign-button" class="d-flex justify-content-end" style="margin-right: 8vw">
         
@@ -67,8 +67,8 @@
                    <div class="modal-content">  
                         <div class="modal-header"> 
                           <div class="container-fluid d-inline-block d-flex justify-content-center pr-0">
-                             <input type="button"  class="button-login" style="width: 50%" onclick="show_login();"  value="Sign in"> 
-                             <input type="button" class="button-login" style="width: 50%; border-left: 1px solid gray" onclick="show_signup();" value="Sign up">
+                             <input type="button"  class="button-login" style="width: 50%; border-color: white" onclick="show_login();"  value="Sign in"> 
+                             <input type="button" class="button-login" style="width: 50%; border: 1px solid white; border-left: 1px solid gray" onclick="show_signup();" value="Sign up">
                              </div>
                              <button type="button" class="close" data-dismiss="modal">&times;</button> 
                         </div> 
