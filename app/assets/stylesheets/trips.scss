@@ -1,11 +1,47 @@
 // Place all the styles related to the trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.carousel-caption {
-    top: 50%;
+
+// CSS of Navbar
+    .navbar a:hover, img.d-inline-block:hover {
+        background-color: rgba(255, 255, 255, 0);
+        // Something to annoy my teammates: A shake effect
+        animation: shake 1s; 
+        animation-iteration-count: infinite; 
+        // End of shake animation
+    }
+    
+    @keyframes shake {
+        0% { transform: translate(0.5px, 0.5px) rotate(0deg); }
+        10% { transform: translate(-0.5px, -1px) rotate(-1deg); }
+        20% { transform: translate(-1.5px, 0px) rotate(1deg); }
+        30% { transform: translate(1.5px, 1px) rotate(0deg); }
+        40% { transform: translate(0.5px, -0.5px) rotate(1deg); }
+        50% { transform: translate(-0.5px, 1px) rotate(-1deg); }
+        60% { transform: translate(-1.5px, 0.5px) rotate(0deg); }
+        70% { transform: translate(1.5px, 0.5px) rotate(-1deg); }
+        80% { transform: translate(-0.5px, -0.5px) rotate(1deg); }
+        90% { transform: translate(0.5px, 1px) rotate(0deg); }
+        100% { transform: translate(0.5px, -1px) rotate(-1deg); }
+      }
+
+// CSS of Carousel
+
+.carousel-item {
+    height: 100vh;
 }
 
-a.carousel-control-prev:hover, a.carousel-control-next:hover{
+.carousel-caption {
+    top: 40%;
+    text-shadow: 5px 0 5px rgb(64, 224, 208);
+}
+
+a.carousel-control-prev:hover, a.carousel-control-next:hover {
     background-color: rgba(64, 224, 208,0.3);
 }
 
+.carousel-control-prev, .carousel-control-next {
+    position: fixed; top: 50vh; height: 100px; transform: translate(0, -50%)
+}
+
+// CSS of Content

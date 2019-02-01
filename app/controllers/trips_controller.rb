@@ -1,8 +1,16 @@
 class TripsController < ApplicationController
 
     def index
-        @courses = Course.all
+        @courses = []
+        3.times do
+            @courses << Course.random
+        end
         @actions = Action.all
+        
+        @activities = []
+        3.times do
+            @activities << Activity.random
+        end
     end
 
     def new
