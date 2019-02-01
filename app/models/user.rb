@@ -7,29 +7,32 @@ has_many :authentications, dependent: :destroy
 
 mount_uploader :avatar, AvatarUploader
 
-
-
  def self.create_with_auth_and_hash(authentication, auth_hash)
 
     user = nil
     if auth_hash[:provider] == 'facebook'
       x = auth_hash["info"]["name"].split(" ")
-     
+
        user = self.create!(
          first_name: x.shift, 
-         # change this first_name to name?
          last_name: x.join(" "),
          email: auth_hash["info"]["email"],
+        
          password: SecureRandom.hex(10)
        )
-
+         user.remote_avatar_url = auth_hash["info"]["image"]
+         user.save
     else 
        user = self.create!(
          first_name: auth_hash["info"]["first_name"],
          last_name: auth_hash["info"]["last_name"],
+         
          email: auth_hash["info"]["email"],
+         
          password: SecureRandom.hex(10)
        )
+       user.remote_avatar_url = auth_hash["info"]["image"]
+       user.save
     end
    user.authentications << authentication
    return user
