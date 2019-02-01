@@ -1,48 +1,53 @@
+<div class="container mx-auto">
 <div class= "profile">
 
  <div class="row">
    <div class="col-6">
 
 		<div class= "name">
-		<h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+			<h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
 		</div>
 
 		<p>Email: <%=@user.email%> </p>
-
 		<p>Interest: <%=@user.interest%></p>
-		 <div>
-		 </br>
-		<%= link_to 'Edit profile', edit_user_path,:class => "btn btn-outline", :style => "color: #3ac9c6; border-color: #3ac9c6; margin:5px;" %>
-
-
-		<%= button_to 'Delete', @user, method: :delete, data: {confirm: "You sure?"}, :class => "btn btn-outline", :style => "color: red; border-color: red"%>
-		</div>
-
 
    </div>
 
-	<div class="col-6">
+   <div class="col-6">
 		<div class= "profile-pic-container">
 
-			<% if @user.avatar.url != nil%>
-			 <%= image_tag @user.avatar.url, id: "profilepic"%> 
-			
+			<% if @user.avatar.url == nil%>
+				<%= image_tag "/default_profile.png", :class => "profilepic"%>
+			<% else %>
+			 	<%= image_tag @user.avatar.url, :class => "profilepic"%> 
 			<% end %>
 
 		</div>
-		<div>
-			<%= link_to 'View my trips', user_path, :class => "btn btn-outline", :style => "color: #3ac9c6; border-color: #3ac9c6; margin:10px;"%>
-		</div>
-
 
 	</div>
  </div>
 
 </div>
+<br/>
+
+<h1 class="text-center h6 mb-3 font-weight-light"> Here are your upcoming trips: </h1>
 
 
-
-
-
-
-
+<% if @user.trips == [] %>
+	<p> You don't have any trips yet. </p>
+	<% else %>
+		<div class="container-fluid col-lg-12 justify-content-center ">
+		<% @user.trips.each do |trip| %>
+			<div class="card bg-dark text-white justify-content-center mx-auto">
+			  <img src="/activity.jpg" class="card-img" alt="...">
+			  <div class="card-img-overlay">
+			    <h5 class="card-title"><%= trip.location %> </h5>
+			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    <p class="card-text"><%= trip.updated_at%></p>
+			  </div>
+			</div>
+			<br/>
+		<%end%>
+		</div>
+<%end%>
+</div>
