@@ -1,8 +1,8 @@
 /*applies to user profile page */
 #profilepic{
 
-width:100px; 
-height:100px; 
+width:150px; 
+height:150px; 
 border-radius:50%;
 
 }
@@ -20,5 +20,10 @@ border-radius:50%;
 	width: 50%;
 	margin:auto;
 	text-align: center;
+
+}
+
+.profile-pic-container {
+	margin:10px;
 
 }
