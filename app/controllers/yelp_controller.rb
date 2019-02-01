@@ -13,8 +13,13 @@ class YelpController < ApplicationController
 
   def index
   	#Change to make a response flexible from a query method
-  	response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=coffee&location=nyc')
-  	@yelps = response.parse['businesses']
+  	# response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=coffee&location=nyc')
+  	# @yelps = response.parse['businesses']
+
+  	result = Yelp.new
+  	results = result.search("coffee", "nyc")
+  	@yelps = result['businesses']
+
   	# @yelps.each do |yelp|
   	# 	Yelp.create(yelp_reference: yelp['id'])
   	# end

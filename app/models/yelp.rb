@@ -1,6 +1,14 @@
-class Yelp < Action
-	
-	include HTTParty
+# class Yelp < Action
+# class Yelp < ApplicationRecord
+
+require "json"
+require "http"
+require "optparse"
+require "config/application.yml"
+
+class Yelp
+
+	# include HTTParty
 
 	API_HOST = "https://api.yelp.com"
 	SEARCH_PATH = "/v3/businesses/search"
@@ -20,7 +28,7 @@ class Yelp < Action
 	  }
 
 	  response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get(url, params: params)
-	  response.parse
+	  return response.parse
 	end	
 
 end
