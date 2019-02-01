@@ -1,21 +1,17 @@
 <h1>A bunch of Yelp Results</h1>
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Address</th>
-			<th>Star Rating</th>
-		</tr>		
-	</thead>
+<div id="columns">
+	<% @yelps.each do |y| %>
 
-	<tbody>
-		<% @response.each do |y|%>
-			<tr>
-				<td><%= y["name"] %></td>
-				<td><%= y["location"]["address1"] %></td>
-				<td><%= y["rating"] %></td>
-			</tr>
-		<%end%>
-	</tbody>
-</table>
+		<figure>
+	  		<%= image_tag y["image_url"] %>
+			<figcaption>
+				<h4><%= link_to "#{y["name"]}", y['url'] %></h4>		
+					This place has a rating of <%= y["rating"] %>
+				
+			</figcaption>
+		</figure>
+	
+	<% end %>
+  
+  </div>
