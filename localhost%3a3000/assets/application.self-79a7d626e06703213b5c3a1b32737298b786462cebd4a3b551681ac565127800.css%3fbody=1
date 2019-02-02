@@ -10,12 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
 /** { border: 1px solid red; }
 */
+
 
 #myVideo {
   position: relative;
@@ -30,6 +31,7 @@
 .content {
   position: relative;
   bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
   padding: 20px;
@@ -45,8 +47,6 @@
   padding: 0px;
   margin: 0px;
   height: 300px;
-  top: 10px;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
 }
 
 .my-video{

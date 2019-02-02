@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 
 # Gem for backgroung video
-gem 'vider', github: 'wazery/vider'
+# gem 'vider', github: 'wazery/vider'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use Capistrano for deployment
