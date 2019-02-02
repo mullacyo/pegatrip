@@ -53,10 +53,10 @@
 
         <div class="d-inline-block" style="margin: auto">
           <% if signed_in? %>
-            <%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => "btn btn-outline", :style => "color: #3ac9c6; border-color: #3ac9c6" %>
+            <%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => "btn btn-outline", :style => "width: 100px; color: #3ac9c6; border-color: #3ac9c6" %>
           <% else -%>
             <div align="center">  
-              <button type="button" name="login" id="login" class="btn btn-outline" style="color: #3ac9c6; border-color: #3ac9c6" data-toggle="modal" data-target="#loginModal" onclick="show_login()">Login</button>  
+              <button type="button" name="login" id="login" class="btn btn-outline" style="width: 100px; color: #3ac9c6; border-color: #3ac9c6" data-toggle="modal" data-target="#loginModal" onclick="show_login()">Login</button>  
             </div>
         </div>
       </div>

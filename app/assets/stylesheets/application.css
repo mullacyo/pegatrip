@@ -34,6 +34,8 @@
   width: 100%;
   padding: 20px;
   text-align: center;
+  opacity: 0.9;
+  letter-spacing: 3px;
 }
 
 .back-video{
@@ -44,11 +46,28 @@
   position: relative;
   padding: 0px;
   margin: 0px;
-  height: 300px;
+  height: 700px;
   top: 10px;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
 }
 
 .my-video{
 	position: absolute;
+}
+
+.search-input{
+	opacity: 0.7;
+}
+
+body{
+	/*background="Pegatrip_White_Logo_watermark.png"*/
+
+	background-image: url(/Pegatrip_White_Logo_watermark.png);
+	background-repeat: no-repeat;
+	background-position: 700px 1000px;
+}
+
+section {
+	background-color: #FBFEF9;
+	height: 100%;
 }
