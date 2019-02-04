@@ -9,8 +9,11 @@
 		</div>
 
 		<p>Email: <%=@user.email%> </p>
-		<p>Interest: <%=@user.interest%></p>
-
+		<% if @user.interest == nil %>
+			<p> Interest:<i> You don't have any interests now. Please go to "Edit profile" to add an activity that you would like to include in your random trips. </i></p>
+		<% else %>
+			<p>Interest: <%=@user.interest%></p>
+		<%end%>
    </div>
 
    <div class="col-6">
@@ -30,19 +33,77 @@
 </div>
 <br/><br/> <hr>
 
-<h1 class="text-center h6 mb-3 font-weight-light"> Here are your upcoming trips: </h1>
-<br/>
+<div class="timeline">
+  <div class="entry">
+    <div class="title">
+      <h3>2014 - Present</h3>
+      <p>Title, Company</p>
+    </div>
+    <div class="body">
+      <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+      <ul>
+        <li>Rerum sit libero possimus amet excepturi</li>
+        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
+        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2010 - Present</h3>
+      <p>Title, Company</p>
+    </div>
+    <div class="body">
+      <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+      <ul>
+        <li>Rerum sit libero possimus amet excepturi</li>
+        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
+        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2009 - 2010</h3>
+      <p>Title, Company</p>
+    </div>
+    <div class="body">
+      <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+      <ul>
+        <li>Rerum sit libero possimus amet excepturi</li>
+        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
+        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2006 - 2008</h3>
+      <p>Title, Company</p>
+    </div>
+    <div class="body">
+      <p>Voluptatibus veniam ea reprehenderit atque reiciendis non laborum adipisci ipsa pariatur omnis.</p>
+      <ul>
+        <li>Rerum sit libero possimus amet excepturi</li>
+        <li>Exercitationem enim dolores sunt praesentium dolorum praesentium</li>
+        <li>Modi aut dolores dignissimos sequi sit ut aliquid molestias deserunt illo</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
 
 <% if @user.trips == [] %>
 	<p> You don't have any trips yet. </p>
 	<% else %>
-
-<div class="trip-container">
     	<% @user.trips.each do |trip| %>
-      <div><%=trip.location%></div>
-      <%end%>
-</div>
- 
+    	  <div class="container-fluid">
+			<img src="/sightseeing.jpg" class="d-inline-block" alt="Girl in a jacket" style="border-radius: 100px 100px; width: 30%">
+      		<div class="d-inline-block"><%=trip.location%></div>
+  		  </div>
+        <%end%>
 <%end%>
 
 
