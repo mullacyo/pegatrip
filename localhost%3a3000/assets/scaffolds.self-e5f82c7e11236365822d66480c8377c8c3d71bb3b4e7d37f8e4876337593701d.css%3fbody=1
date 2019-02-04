@@ -24,7 +24,7 @@ pre {
 
 /* line 22, /Users/dianaseidakhmetova/Desktop/pegatrip/app/assets/stylesheets/scaffolds.scss */
 a {
-  color: #000;
+  color: white;
 }
 /* line 25, /Users/dianaseidakhmetova/Desktop/pegatrip/app/assets/stylesheets/scaffolds.scss */
 a:visited {

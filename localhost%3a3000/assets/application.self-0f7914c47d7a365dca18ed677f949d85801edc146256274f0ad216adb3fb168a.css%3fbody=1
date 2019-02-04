@@ -10,12 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
 /** { border: 1px solid red; }
 */
+
 
 #myVideo {
   position: relative;
@@ -63,27 +64,13 @@
 	opacity: 0.7;
 }*/
 
-.welcome-text {
-  font: 300 100px/0.8 'Great Vibes', Helvetica, sans-serif;
-  color: #3ac9c6;
-  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+body{
+	/*background="Pegatrip_White_Logo_watermark.png"*/
+	background-image: url(/Pegatrip_White_Logo_watermark.png);
+	background-repeat: no-repeat;
+	background-position: right-bottom;
 }
 
-.paragraph-text {
-	
-	width: 70%; 
-	margin-top: 50px; 
-	font-weight: lighter;
-	font-family: 'Open Sans';
-  	font-style: normal;
-  	font-weight: 400;
-  	src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-
-#logo-image:hover,
-#logo-image:focus{
-	background: none;
-}
 /*section {
 	background-color: #FBFEF9;
 	height: 100%;
