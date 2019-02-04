@@ -69,7 +69,21 @@
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
 }
 
+.paragraph-text {
+	
+	width: 70%; 
+	margin-top: 50px; 
+	font-weight: lighter;
+	font-family: 'Open Sans';
+  	font-style: normal;
+  	font-weight: 400;
+  	src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
 
+#logo-image:hover,
+#logo-image:focus{
+	background: none;
+}
 /*section {
 	background-color: #FBFEF9;
 	height: 100%;

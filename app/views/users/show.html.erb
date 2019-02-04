@@ -36,20 +36,13 @@
 <% if @user.trips == [] %>
 	<p> You don't have any trips yet. </p>
 	<% else %>
-		<div class="container-fluid col-lg-12 justify-content-center ">
-		<% @user.trips.each do |trip| %>
-			<div class="card bg-dark text-white justify-content-center mx-auto">
-			  <img src="/activity.jpg" class="card-img" alt="...">
-			  <div class="card-img-overlay">
-			    <h5 class="card-title"><%= trip.location %> </h5>
-			    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-			    <p class="card-text"><%= trip.updated_at%></p>
-			  </div>
-			</div>
-			<br/>
-			<hr>
-			<br/>
-		<%end%>
-		</div>
-<%end%>
+
+<div class="trip-container">
+    	<% @user.trips.each do |trip| %>
+      <div><%=trip.location%></div>
+      <%end%>
 </div>
+ 
+<%end%>
+
+
