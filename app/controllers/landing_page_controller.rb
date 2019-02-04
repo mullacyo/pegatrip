@@ -1,2 +1,6 @@
 class LandingPageController < ApplicationController
+
+
+
+
 end

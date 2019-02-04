@@ -1,6 +1,10 @@
 class Action < ApplicationRecord
 	has_many :actions_trips
 	has_many :trips, through: :actions_trips
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+	index_name([Rails.env,base_class.to_s.pluralize.underscore].join('_'))
 end
 
 class Food < Action
@@ -23,3 +27,18 @@ class Activity < Action
 		Activity.all[random_number]
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,10 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+
   resources :trips 
+  resources :actions do
+  end 
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
@@ -26,5 +29,6 @@ get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 # get '/logout', to: 'sessions#destroy', via: [:get, :post]
 get 'auth/failure', to: redirect('/')
     
+
 end
 
