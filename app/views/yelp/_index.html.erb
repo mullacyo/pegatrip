@@ -5,7 +5,8 @@
 	  		<%= image_tag y["image_url"] %>
 			<figcaption>
 				<h5><%= link_to "#{y["name"]}", y['url'] %></h5>		
-				This place has a rating of <%= y["rating"] %>
+				This place has a rating of <%= y["rating"]%>
+				<%= match_stars(y["rating"], "regular")%>
 			</figcaption>
 		</figure>
 	
