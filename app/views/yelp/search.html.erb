@@ -2,9 +2,12 @@
   <div class="container mt-5 pt-5">
     <h1 class="display-4 text-light">Make me an adventure</h1>
     <p class="lead text-light">Name something you're looking for, and where you want to find. We'll send our searching fairies to make some suggestions.</p>
+    <p class="text-light">Powered by Yelp</p>
    	<form class="form-inline justify-content-center text-light">
-	     I want to look for <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="Coffee" aria-label="Search" name="term"> in
-	     <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="New York City" aria-label="Search" name="location">
+	     I want to look for 
+	     <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="Coffee" aria-label="Search" name="term" required value="<%=params[:term]%>"> 
+	     in
+	     <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="New York City" aria-label="Search" name="location" required value="<%=params[:location]%>">
 	     <button class="btn my-2 my-sm-0 d-inline-block" style="color: white; background-color: #3ac9c6" type="submit">Search</button>
    	</form>
   </div>
