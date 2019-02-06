@@ -15,6 +15,9 @@ gem 'faker'
 
 # For Yelp API usage
 gem 'http'
+
+# For scraping
+gem 'nokogiri'
 gem 'httparty'
 
 
