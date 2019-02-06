@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_034442) do
+ActiveRecord::Schema.define(version: 2019_02_06_042250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_01_31_034442) do
     t.integer "intensity"
     t.integer "price"
     t.json "pictures"
+    t.string "api_reference"
+    t.string "api_source"
   end
 
   create_table "actions_trips", id: false, force: :cascade do |t|

@@ -1,0 +1,19 @@
+<div id="columns">
+	<% @yelps.each do |y| %>
+
+		<figure>
+	  		<%= image_tag y["image_url"] %>
+			<figcaption>
+				<h5><%= link_to "#{y["name"]}", y['url'] %></h5>	
+				<div>			
+					<%= image_tag match_stars(y["rating"], "regular")%> based on <%=link_to "#{y["review_count"]} reviews", y['url'] %> 
+				</div>
+				<div class="float-right align-bottom" style="vertical-align: bottom">
+					<%= image_tag "yelp_logo/Yelp_trademark_RGB_outline", :style => "width: 80px; margin: 0px" %>
+				</div>
+			</figcaption>
+		</figure>
+	
+	<% end %>
+  
+  </div>
