@@ -1,34 +1,34 @@
 # class Yelp < Action
 # class Yelp < ApplicationRecord
 
-require "json"
-require "http"
-require "optparse"
-require "config/application.yml"
+# require "json"
+# require "http"
+# require "optparse"
+# require "config/application.yml"
 
-class Yelp
+# class Yelp < Action
 
-	# include HTTParty
+# 	include HTTParty
 
-	API_HOST = "https://api.yelp.com"
-	SEARCH_PATH = "/v3/businesses/search"
-	BUSINESS_PATH = "/v3/businesses/"  # trailing / because we append the business id to the path
+# 	API_HOST = "https://api.yelp.com"
+# 	SEARCH_PATH = "/v3/businesses/search"
+# 	BUSINESS_PATH = "/v3/businesses/"  # trailing / because we append the business id to the path
 
-	DEFAULT_BUSINESS_ID = "yelp-san-francisco"
-	DEFAULT_TERM = "dinner"
-	DEFAULT_LOCATION = "San Francisco, CA"
-	SEARCH_LIMIT = 5	
+# 	DEFAULT_BUSINESS_ID = "yelp-san-francisco"
+# 	DEFAULT_TERM = "dinner"
+# 	DEFAULT_LOCATION = "San Francisco, CA"
+# 	SEARCH_LIMIT = 5	
 
-	def search(term, location)
-	  url = "#{API_HOST}#{SEARCH_PATH}"
-	  params = {
-	    term: term,
-	    location: location,
-	    limit: SEARCH_LIMIT
-	  }
+# 	def search(term, location)
+# 	  url = "#{API_HOST}#{SEARCH_PATH}"
+# 	  params = {
+# 	    term: term,
+# 	    location: location,
+# 	    limit: SEARCH_LIMIT
+# 	  }
 
-	  response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get(url, params: params)
-	  return response.parse
-	end	
+# 	  response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get(url, params: params)
+# 	  return response.parse
+# 	end	
 
-end
+# end
