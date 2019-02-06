@@ -4,7 +4,11 @@ class YelpController < ApplicationController
   require "http"
   require "httparty"
   require "optparse"
-  
+  # API_HOST = "https://api.yelp.com"
+  # SEARCH_PATH = "/v3/businesses/search"
+
+
+
   def show  	
   	# holder = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=delis&location=nyc')
   	# @response = holder.parse['businesses']
@@ -13,16 +17,8 @@ class YelpController < ApplicationController
 
   def index
   	#Change to make a response flexible from a query method
-  	# response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=coffee&location=nyc')
-  	# @yelps = response.parse['businesses']
-
-  	result = Yelp.new
-  	results = result.search("coffee", "nyc")
-  	@yelps = result['businesses']
-
-  	# @yelps.each do |yelp|
-  	# 	Yelp.create(yelp_reference: yelp['id'])
-  	# end
+  	response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=coffee&location=nyc')
+  	@yelps = response.parse['businesses']
   end
 
   def map
@@ -30,7 +26,19 @@ class YelpController < ApplicationController
   end
 
   def search
-  	#Shows the search form
+  	url = "https://api.yelp.com/v3/businesses/search"
+  	#Shows the search form if no paramaters are present
+
+  	#If parameter queries are present, will show index of activities
+  	if params[:term].present? and params[:location].present?
+	  search_parameters = {
+	    term: params[:term],
+	    location: params[:location],
+	  }
+  		response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get("https://api.yelp.com/v3/businesses/search", params: search_parameters)
+  		@yelps = response.parse['businesses']
+  	end
+
   end
 
 end
