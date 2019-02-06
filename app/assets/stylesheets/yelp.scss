@@ -35,6 +35,13 @@ div#columns figure img {
 	margin-bottom: 5px;
 }
 
+div#columns figure figcaption img {
+	width: auto;
+	border-bottom: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 0pxpx;
+}
+
 div#columns figure figcaption {
   font-size: .9rem;
 	color: #444;

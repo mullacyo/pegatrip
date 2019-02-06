@@ -10,11 +10,11 @@ module YelpHelper
 	end
 
 	def match_stars(float, size)
-		folder_path = "yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}.png"
+		folder_path = "yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}"
 	end
 
 	def match_stars_at_zoom(float, size, zoom)
-		folder_path = "yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}@#{zoom}x.png"
+		folder_path = "assets/images/yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}@#{zoom}x"
 	end
 
 end
