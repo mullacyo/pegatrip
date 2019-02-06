@@ -37,7 +37,23 @@ class YelpController < ApplicationController
  				#Skip
  			else
 	  			# If new, make a new entry
-  				Action.create(price: y['price'].length, title: y['name'], type: "Food", description: "No description is available for this item yet", location: y['location'], api_reference: y['id'], api_source: "Yelp")
+
+	  			# To prevent errors if Yelp has no price data
+	  			if y['price'].present?
+	  				yelp_price = y['price'].length
+	  			else
+	  				yelp_price = nil
+	  			end
+
+  				Action.create(
+  					price: yelp_price, 
+  					title: y['name'], 
+  					type: "Food", 
+  					description: "No description is available for this item yet", #Placeholder text, because Yelp doesn't provide a description from its API
+  					location: y['location'], #note that location saves as a hash containing latitude, longitude 
+  					api_reference: y['id'], 
+  					api_source: "Yelp"
+  				)
  			end
   		end
   	end
