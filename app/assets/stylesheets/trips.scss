@@ -3,6 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // CSS of Navbar
+    .navbar{
+        position: fixed;
+        top:0;
+        z-index:1;
+    }
+    .the-blur{
+        position: fixed;
+        top:0;
+        width: 100%;
+        min-height: 50px;
+        margin-bottom: 20px;
+        background: rgba(0, 217, 255, 0.4);
+        z-index:1;
+        -webkit-filter: blur(20px);
+        -moz-filter: blur(20px);
+        -o-filter: blur(20px);
+        -ms-filter: blur(20px);
+        filter: blur(20px);
+    }
+
     .navbar a:hover, img.d-inline-block:hover {
         background-color: rgba(255, 255, 255, 0);
         // Something to annoy my teammates: A shake effect
@@ -45,3 +65,33 @@ a.carousel-control-prev:hover, a.carousel-control-next:hover {
 }
 
 // CSS of Content
+#content .content-title {
+    text-align: center;
+}
+
+div.card {
+    margin: 20px;
+    align-content: center;
+}
+div#content {
+    margin: 20px; 
+}
+
+.activities-container {
+    margin: 20px;
+    padding: 20px;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    animation: shake 1s; 
+    animation-iteration-count: infinite; 
+}
+
+.card-img-top {
+    object-fit: cover; 
+    width: 286px; 
+    height: 180px;
+}

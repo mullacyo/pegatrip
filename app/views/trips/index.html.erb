@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-=======
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <%# ========== Customized Navbar (Original navbar in Application.html is removed with d-none class in Bootstrap) ========== %>
 
-<div class="navbar container-fluid flex flex-grow" style="background-color: rgba(100, 100, 100, 0); z-index: 1; position: fixed; top: 0;">
+<div class="navbar container-fluid flex flex-grow" style="">
 
         <%= link_to root_path do %>
             <%= image_tag '/Pegatrip_White_Logo_Classic.png', :class => 'd-inline-block', :style => 'height: 50px; margin-left: 8vw;'%>
@@ -46,7 +45,6 @@
 <%# ========== END OF CUSTOMIZED NAV BAR ========== %>
 <%# ========== START OF BOOTSTRAP CAROUSEL ========== %>
 
->>>>>>> added cards to the trip
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" >
     <div class="carousel-item active">
@@ -83,23 +81,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-<<<<<<< HEAD
-<div id="content">
-</div>
-
-<div id="first-content" style="display: none">
-    hi
-    hi
-    hi
-    hi
-</div>
-<div id="second-content" style="display: none">
-    hello
-    hello
-    hello
-    hello
-=======
 <%# ========== END OF BOOTSTRAP CAROUSEL ========== %>
 <%# ========== START OF CONTENT ========== %>
 
@@ -107,28 +88,19 @@
 </div>
 
 <div id="first-content" style="display: none">
-    <%= render partial: '/trips/activities' %>
+    <%= render partial: '/trips/activities', locals: {x: 0, y: 2} %>
+    <%= render partial: '/trips/restaurants', locals: {x: 0, y: 2} %>
+    <%= render partial: '/trips/sightseeings', locals: {x: 0, y: 2} %>
 </div>
 <div id="second-content" style="display: none">
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
->>>>>>> added cards to the trip
+    <%= render partial: '/trips/activities', locals: {x: 3, y: 5} %>
+    <%= render partial: '/trips/restaurants', locals: {x: 1, y: 3} %>
+    <%= render partial: '/trips/sightseeings', locals: {x: 3, y: 5} %>
 </div>
 <div id="third-content" style="display: none">
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
+    <%= render partial: '/trips/activities', locals: {x: 6, y: 8} %>
+    <%= render partial: '/trips/restaurants', locals: {x: 2, y: 4} %>
+    <%= render partial: '/trips/sightseeings', locals: {x: 6, y: 8} %>
 </div>
 
 <script>
@@ -141,4 +113,6 @@ $(document).ready(function(){
 $("#carouselExampleControls").on('slid.bs.carousel', () => {
     $("#content").html($("#" + $(".active")[0].children[0].alt).html())
 })
+
+$('nav').addClass('d-none')
 </script>

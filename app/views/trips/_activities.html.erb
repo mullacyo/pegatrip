@@ -1,9 +1,14 @@
-<h3>Activities</h3>
+<div class="content-title">
+    <h3 class="d-inline">Activities</h3> 
+    <button type="button" class="btn btn-default btn-sm">
+            <i class="fas fa-edit"></i>
+    </button>
+</div>
 
-<div class="activities-container d-flex" style=" flex-grow">
-    <% @activities.each do |a| %>
-        <div class="card" style="width: 18rem; d-inline-block">
-                <img class="card-img-top" src="..." alt="Card image cap">
+<div class="activities-container d-flex justify-content-center" style="flex-grow">
+    <% @activities[x..y].each do |a| %>
+        <div class="card" style="width: 18rem; d-inline-block; overflow: hidden">
+                <img class="card-img-top" src="https://vignette.wikia.nocookie.net/blogclan-2/images/b/b9/Random-image-15.jpg/revision/latest?cb=20160706220047" alt="Card image cap" style="">
                 <div class="card-body">
                     <h5 class="card-title"><%=a.title%></h5>
                     <p class="card-text"><%=a.description%></p>
