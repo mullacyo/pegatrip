@@ -5,4 +5,7 @@ class Trip < ApplicationRecord
 
 	has_many :actions_trips
 	has_many :actions, through: :actions_trips
+
+	scope :match_location, -> () {}
+	scope :method_name, -> (arugment) { where (" column_searching ILIKE ?", "%#{}%")}
 end
