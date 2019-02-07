@@ -37,7 +37,7 @@
   text-align: center;
   opacity: 3;
   letter-spacing: 2px;
-  top: 80px;
+  top: 60px;
   font-family: Tahoma;
   text-shadow: 0 1px 0 black;
 }
@@ -51,6 +51,7 @@
   padding: 0px;
   margin: 0px;
   height: 700px;
+  margin-top: -10px;
   top: 10px;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) );
 }
@@ -88,3 +89,32 @@
 	background-color: #FBFEF9;
 	height: 100%;
 }*/
+
+.card-title{
+	color: #3E8989;
+	font-weight: bold;
+}
+.button-login {
+  float: left;
+  border: none;
+  color: gray;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  outline: none;
+}
+
+a:hover,
+#link-to-forgot-password:focus{
+	background: none;
+	color: gray
+}
+
+
+.profile_pic_navbar{
+	width:40px; 
+	height:40px; 
+	border-radius:50%;
+}

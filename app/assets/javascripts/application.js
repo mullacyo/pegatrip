@@ -28,4 +28,36 @@ function show_login()
  });
 }
 
+function aboutReload() { 
+  $('#Reloader').html('<iframe src="https://wheeldecide.com/e.php?id=281847" width="500" height="500" scrolling="no" frameborder="0"></iframe>');
+ }
 
+// function please(){
+// var iframe = document.getElementById('wheel-doc');
+// iframe.style.backgroundColor = "red";
+// var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+// innerDoc.getElementById('wheelbuttons').style.backgroundColor = "black";
+// }
+
+// function please() {
+//    var iframe = document.getElementById("wheel");
+//    var innerDoc = iframe.contentWindow.document.getElementById("wheelbuttons");
+//    innerDoc.style.backgroundColor = "black";
+// }
+
+
+function please() {
+   // var iframe = document.getElementById("wheel");
+   var innerDoc = document.getElementById("wheelbuttons");
+   innerDoc.style.backgroundColor = "black";
+}
+
+// function please () {
+// var iframe = document.getElementById('wheel');
+// iframe.style.backgroundColor = "red";
+// var innerDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
+
+// innerDoc.getElementById('wheelbuttons').style.backgroundColor = "black";
+
+//      }       
+         

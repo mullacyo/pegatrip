@@ -31,6 +31,7 @@ end
 
 def show
 	@user = User.find(params[:id])
+	@trips = Trip.where(:user_id => @user.id).order(start_date: :desc)
 end 
 
 

@@ -11,12 +11,40 @@
 		<h1 class="text-center h2 mb-3 font-weight-light welcome-text"> Welcome to Pegatrip! </h1> <br/>
        	<p class="text-center mb-3 h6 font-italic font-weight-ligh" style="font-weight: lighter; font-family:Lucida Console; "> <i>Your journey starts now!</i> </p>
 
-		<p class="text-center font-weight-light mx-auto paragraph-text text-lighter"> Have you ever imagined to go for a trip but your friends are always busy <br/> and come up with different excuses all the time? This is a time to go for your RANDOM trip around the world! Let's make your travel experience even more productive! Add a course or skill that you would like to gather during your journey and we will generate 3 unexpected options around the world for you with the best places to visit on your free time in this city! Stop plan it! <i>"Adventure is just bad planning -Roald Amundsen" </i>.
+		<p class="text-center font-weight-light mx-auto paragraph-text text-lighter" > Have you ever imagined to go for a trip but your friends are always busy <br/> and come up with different excuses all the time? This is a time to go for your RANDOM trip around the world! Let's make your travel experience even more productive! Add a course or skill that you would like to gather during your journey and we will generate 3 unexpected options around the world for you with the best places to visit on your free time in this city! Stop plan it! <i>"Adventure is just bad planning -Roald Amundsen" </i>.
 		</p> <br/>
-       	
-  </div> 
+
+
+		<button type="button" name="wheel-modal" id="wheelModal" class="btn" style="width: 50%; color: #3ac9c6; border-color: #3ac9c6" data-toggle="modal" data-target="#wheel-modal"> Generate a random trip </button>
+
+		<div class="modal fade" id="wheel-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="color: black" >
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content" style="width: 1000px">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalCenterTitle"> Lucky wheel</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<button onclick="aboutReload()" class="btn btn-outline" style="width: 100%; color: #3ac9c6; border-color: #3ac9c6"> Click me to generate a new trip</button> <br/><br/>
+			      	<div id="Reloader">
+			      		<iframe id="wheel" src="https://wheeldecide.com/e.php?id=281847" width="500" height="500" scrolling="no" frameborder="0"></iframe>
+     				</div>
+     				
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			       	
+			  </div> 
   
-</div>
+		</div>
+
+
 <div class="d-flex justify-content-center" style="margin-top: -250px">
 	<div class="card-deck text-center" style="margin-top: 4vh; width: 70vw">
 	  <div class="card">
@@ -46,11 +74,17 @@
 	</div>
 </div>
 <section>
-		
 
+<!-- <button onclick = "please()">here</button>
+	<iframe  id="wheel" src="https://wheeldecide.com/e.php?id=281847" width="500" height="500" scrolling="no" frameborder="0"></iframe> -->
+		
 
  <footer style="margin-top: 10vh; margin-left: 5vh">
       <p> <small class="text-muted"> Generate a random trip around the world <br/>
       © Pegatrip Ltd 2019 </small></p>
  </footer>
 </section>
+
+
+
+
