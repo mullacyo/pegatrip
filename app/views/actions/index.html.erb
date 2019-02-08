@@ -1,28 +1,31 @@
 <div id= 'actionslist'>
 
-
+<% @array_of_events.each do |x| %>
 	
+	<%= x.title %>
+</br>
+	<%= x.type %>
+</br>	
+	<%= x.description %>
+</br>
+	<%= x.location %>
+</br>
+	<%= x.time %>
+</br>
+	<%= x.price %>
+</br>	
+	<%= image_tag x.pictures %>
+</br>
+	
+	
+
+<% end %>
+
 
 </div>	
 	
 
 
-<!-- 
-		// $.ajax({
-		//   type:"GET",
-		//   url:"https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu",
-		//   async:true,
-		//   dataType: "json",
-		//   success: function(json) {
-		//               console.log(json);
-		//               // Parse the response.
-		//               // Do other things.
-		//            },
-		//   error: function(xhr, status, err) {
-		//               // This time, we do not end up here!
-		//            }
-		// });
-	}) -->
 
 
 

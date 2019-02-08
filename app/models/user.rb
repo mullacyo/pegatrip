@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include Clearance::User
   include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model::Callbacks
 
 index_name([Rails.env,base_class.to_s.pluralize.underscore].join('_'))
 

@@ -280,7 +280,6 @@ citycodes = {
 	y = citycodes.key("London")
 # replace South Island with params later
 
-
 	# @actions = Action.all
 	# 	if params[:term]
 	# 		@actions = @actions.search(params[:term]).records
@@ -292,6 +291,7 @@ citycodes = {
 		 	@response1 = rawresponse.parse["_embedded"]["events"]
 			# p @response1		 	
 	# response here is an array of ruby objects
+			@array_of_events = []
 		 	@response1.each do |x|
 		 		@action = Action.new
 
@@ -302,10 +302,14 @@ citycodes = {
 		 		@action.location= x['_embedded']['venues'][0]['city']['name']
 		 		@action.time= x['dates']['start']['dateTime']
 
-				if rawresponse.parse.has_key?("priceRanges")
-					@action.price = x['_embedded']['events']['priceRanges']['min']
+				if x.has_key?("priceRanges")
+					@action.price = x['priceRanges'][0]['min']
 				end 
-				# not accessing inside hash
+
+				if Action.find_by(title: x['name'] == nil)
+				@action.save
+				@array_of_events << @action
+				end 
 	 		end 
 	 	else
 	 		p 'no events in city'
@@ -313,13 +317,13 @@ citycodes = {
 	 	
 	end
 
-# 	def destroy
-# 		@action = Action.find(params[:id])
-# 		@action.destroy
+	def destroy
+		@action = Action.find(params[:id])
+		@action.destroy
 
 
 
-# 	end 
+	end 
 
 
 
