@@ -1,39 +1,13 @@
 <div id= 'actionslist'>
-		<% @actions.each do |x| %>	
-			<p><%= x.type %></p>
-			<p><%= x.title %></p>
-			<p><%= x.description %></p>
-			<p><%= x.location %></p>
-			<p><%= x.duration %></p>
-			<p><%= x.intensity %></p>
-			<p><%= x.price %></p>
-			<p><%= x.pictures %></p>
-		</br>
-		<% end %>	
+
+
+	
+
 </div>	
 	
-<script type="text/javascript">
-	$(document).on('turbolinks:load', function(){
-		$.ajax({
-		  type:"GET",
-		  url:'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu',
 
 
-		  async:true,
-		  dataType: "json",
-		  success: function(json) {
-		              console.log(json); 
-		              console.log(json._embedded);
-		              
-
-		              // Parse the response.
-		              // Do other things.
-		           },
-		  error: function(xhr, status, err) {
-		              
-		           }
-		});
-
+<!-- 
 		// $.ajax({
 		//   type:"GET",
 		//   url:"https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu",
@@ -48,10 +22,10 @@
 		//               // This time, we do not end up here!
 		//            }
 		// });
-	})
-</script>
+	}) -->
 
-<% @events.each do |x| %>
-	<p><%= x %></p>
 
-<% end %>
+
+
+
+
