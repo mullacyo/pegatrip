@@ -1,0 +1,34 @@
+<div id= 'actionslist'>
+
+<% @array_of_events.each do |x| %>
+	
+	<%= x.title %>
+</br>
+	<%= x.type %>
+</br>	
+	<%= x.description %>
+</br>
+	<%= x.location %>
+</br>
+	<%= x.time %>
+</br>
+	<%= x.price %>
+</br>	
+	<%= image_tag x.pictures %>
+</br>
+	
+	
+
+<% end %>
+
+
+</div>	
+	
+
+
+
+
+
+
+
+

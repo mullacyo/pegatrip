@@ -25,6 +25,16 @@
      
       <a id="logo-image" href="<%=root_path%>"><img src="/plogo_shadow.png" class="d-inline-block" style="height: 7vh; margin-left: 8vw"/></a>
 
+      <div id="search-div" class="form-inline my-2 my-lg-0">
+          <%= form_tag actions_path, id: "action-search", method: :get do %>
+
+            <%= text_field_tag "term", nil, list: "list", placeholder: "Search", class: "form-control mr-sm-2" %>
+
+            <datalist id="list"></datalist>
+          <% end %>
+      </div>
+
+
       <div id="header profile-pic-and-sign-button" class="d-flex justify-content-end" style="margin-right: 8vw">
         
             <% if signed_in? && current_user.avatar.present? %>

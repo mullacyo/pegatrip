@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
+
+
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave', '~> 1.0'

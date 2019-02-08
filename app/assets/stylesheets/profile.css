@@ -1,11 +1,9 @@
 
+
 .sign-up-table {
 
-
-
-
-
 }
+
 
 #profile-pic-center{
 	text-align: right!important;
@@ -13,6 +11,7 @@
 
 /** { border: 1px solid red; }
 */
+
 
 .profilepic{
 
@@ -39,6 +38,7 @@
 	text-align: center;
 
 }
+
 
 
 
@@ -70,3 +70,7 @@
 	background: none;
 	color: gray
 }
+
+
+
+

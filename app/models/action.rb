@@ -1,6 +1,11 @@
 class Action < ApplicationRecord
-	has_many :actions_trips
-	has_many :trips, through: :actions_trips
+	has_many :actions_trips, dependent: :destroy
+	has_many :trips, through: :actions_trips,  dependent: :destroy
+  include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
+  	# validates :title, uniqueness: true
+
+	index_name([Rails.env,base_class.to_s.pluralize.underscore].join('_'))
 end
 
 class Food < Action
@@ -23,3 +28,18 @@ class Activity < Action
 		Activity.all[random_number]
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
