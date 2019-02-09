@@ -15,23 +15,29 @@
     <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
+    
+
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track'=> true %>
+
+    
   </head>
 
   <body style="margin: 0px">
-    <nav class="navbar container-fluid flex flex-grow" style="margin-top: 3vh">
+    <nav class="navbar container-fluid flex flex-grow" style="padding-top: 30px;">
+      <div class="d-flex justify-content-start" style="margin-left: 8vw">
      
-      <a id="logo-image" href="<%=root_path%>"><img src="/plogo_shadow.png" class="d-inline-block" style="height: 7vh; margin-left: 8vw"/></a>
+      <a id="logo-image" href="<%=root_path%>"><img src="/Pegatrip_White_Logo_Classic.png" class="d-inline-block" style="height: 50px"></a>
 
-      <div id="search-div" class="form-inline my-2 my-lg-0">
+      <div id="search-div" class="form-inline my-2 my-lg-0 d-inline-block">
           <%= form_tag actions_path, id: "action-search", method: :get do %>
 
-            <%= text_field_tag "term", nil, list: "list", placeholder: "Search", class: "form-control mr-sm-2" %>
+            <%= text_field_tag "term", nil, id: "search", list: "list", placeholder: "Search", class: "form-control mr-sm-2" %>
 
             <datalist id="list"></datalist>
           <% end %>
+        </div>
       </div>
 
 

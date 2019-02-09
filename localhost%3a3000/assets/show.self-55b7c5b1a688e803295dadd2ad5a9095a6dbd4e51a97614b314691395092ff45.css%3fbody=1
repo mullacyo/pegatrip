@@ -1,3 +1,6 @@
+*{
+  border: 1px solid red;
+}
 
 .profile-pic{
 
@@ -12,14 +15,6 @@
 	margin:auto;
 	text-align: center;
 }
-
-/*-------------edit page -------------*/
-
-.profile-pic-edit{
-  width:200px; 
-  height:200px; 
-}
-/*-------------end of edit page ------*/
 
 
 
@@ -59,7 +54,7 @@
     margin-bottom: .5em;
     float: left;
     width: 33%;
-    padding-right: 30px;
+    /* padding-right: 30px; */
     text-align: right;
     position: relative;
   }

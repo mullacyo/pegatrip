@@ -5,7 +5,6 @@ before_action :correct_user, only: [:edit, :update, :destroy]
 
 
 def new
-
 	@user = User.new
 end 
 
@@ -31,6 +30,7 @@ end
 
 def show
 	@user = User.find(params[:id])
+	@trips = Trip.where(:user_id => @user.id).order(start_date: :desc)
 end 
 
 

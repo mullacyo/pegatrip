@@ -25,10 +25,12 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-# get '/logout', to: 'sessions#destroy', via: [:get, :post]
-get 'auth/failure', to: redirect('/')
-    
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  # get '/logout', to: 'sessions#destroy', via: [:get, :post]
+  get 'auth/failure', to: redirect('/')
 
+  get '/redirect/:trip_id', to: 'calendar#redirect', as: 'redirect'
+  get '/callback/', to: 'calendar#callback', as: 'callback'
+  
 end
 

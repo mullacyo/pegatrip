@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
 
     def index
+
         @courses = []
         @activities = []
         @restaurants = []
@@ -33,9 +34,11 @@ class TripsController < ApplicationController
     end
 
     def new
+    
     end
 
     def create
+    
     end
 
     def show

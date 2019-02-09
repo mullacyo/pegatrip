@@ -35,7 +35,7 @@ class YelpController < ApplicationController
   			# Check if the yelp result was saved before
   			if Action.find_by(api_reference: y['id']).present?
  				#Skip
- 			else
+ 			  else
 	  			# If new, make a new entry
 
 	  			# To prevent errors if Yelp has no price data

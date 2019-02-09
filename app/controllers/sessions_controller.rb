@@ -8,7 +8,7 @@ def create_from_omniauth
     if authentication.user
       user = authentication.user 
       authentication.update_token(auth_hash)
-      @next = user_path(user)
+      @next = root_path
       @notice = "Signed in!"
   # else: user logs in with OAuth for the first time
   

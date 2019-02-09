@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container mx-auto mt-5">
 <div class= "profile">
 
  <div class="row">
@@ -9,40 +9,45 @@
 		</div>
 
 		<p>Email: <%=@user.email%> </p>
-		<p>Interest: <%=@user.interest%></p>
-
+		<% if @user.interest == nil %>
+			<p> Interest:<i> You don't have any interests now. Please go to <b>"Edit profile"</b> to add an activity that you would like to include in your random trips. </i></p>
+		<% else %>
+			<p>Interest: <%=@user.interest%></p>
+		<%end%>
    </div>
 
-   <div class="col-6">
-		<div class= "profile-pic-container" id="profile-pic-center">
-
+   <div class="col-6 mx-auto">
 			<% if @user.avatar.url == nil%>
-				<%= image_tag "/default_profile.png", :class => "profilepic"%>
+				<%= image_tag "/default_profile.png", :class => "profile-pic"%>
 			<% else %>
-			 	<%= image_tag @user.avatar.url, :class => "profilepic"%> 
+			 	<%= image_tag @user.avatar.url, :class => "profile-pic"%> 
 			<% end %>
-
-		</div>
-
 	</div>
  </div>
 
 </div>
-<br/><br/> <hr>
-
-<h1 class="text-center h6 mb-3 font-weight-light"> Here are your upcoming trips: </h1>
-<br/>
+<br/><br/> <hr> <br/>
 
 <% if @user.trips == [] %>
 	<p> You don't have any trips yet. </p>
 	<% else %>
-
-<div class="trip-container">
-    	<% @user.trips.each do |trip| %>
-      <div><%=trip.location%></div>
-      <%end%>
-</div>
- 
+			<div class="timeline mx-auto">
+    	<% @trips.each do |trip| %>
+			  <div class="entry">
+			    <div class="title">
+			      <h3>Start date: <%=trip.start_date.strftime('%a, %d %b %Y')%> <br/>End date: <%=trip.end_date.strftime('%a, %d %b %Y')%></h3>
+			      <a href="#"><p><%=trip.location%></p></a>
+			      <%= link_to "Add to my Google Calendar", redirect_path(trip.id)%>
+			    </div>
+			    <div class="body">
+			      <img src="/sightseeing.jpg" style="width: 50%; margin-left: 20px; border-radius: 100% ">
+			    </div>
+			  </div> <br/> <hr> <br/> 
+        <%end%>
+			</div>
 <%end%>
 
-
+<script>
+	
+	$('.navbar').css('border-bottom', '1px solid rgba(0,0,0,.1)')
+</script>
