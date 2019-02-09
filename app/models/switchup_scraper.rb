@@ -3,7 +3,7 @@ require 'Nokogiri'
 
 class SwitchupScraper
 
-#link_array made by running .get_location_links on Switchup list of Bootcamps by location
+#made by running .get_location_links on Switchup list of Bootcamps by location
 bootcamp_locations = [
  "/rankings/best-bootcamps-atlanta",
  "/rankings/best-bootcamps-austin",
@@ -65,12 +65,7 @@ bootcamp_locations = [
  "/rankings/best-bootcamps-toronto",
  "/rankings/best-bootcamps-vancouver"]
 
-mini_link_array = ["/rankings/best-bootcamps-atlanta",
- "/rankings/best-bootcamps-austin"]
-
-bootcamp_providers = ["/bootcamps/next-academy", "/bootcamps/general-assembly",
- "/bootcamps/thinkful"]
-
+#made by running .get_course_links on each bootcamp_location member
 long_bootcamp_providers = ["/bootcamps/general-assembly",
  "/bootcamps/thinkful",
  "/bootcamps/flatiron-school",
@@ -348,7 +343,6 @@ attr_accessor :parse_page
 				p "description: "+scraped_desc
 				p "cost: "+curscraper.get_all_info[n].css("tr").css("td")[3].text.strip.gsub(/[\s,]/ ,"")[1..-4].to_i.to_s
 
-		# 	# pp scraper2.get_all_info[0].css("tr").css("td")[1].text.strip # Should print subjects of first course, also needs an onclick checker
 
 			end
 
@@ -358,9 +352,8 @@ attr_accessor :parse_page
 
 
 
+		# pp scraper2.get_all_info[0].css("tr").css("td")[1].text.strip # Should print subjects of first course, also needs an onclick checker
 
-	# curscraper = SwitchupScraper.new(newurl) #e.g. SwitchupScraper.new("https://www.switchup.org/bootcamps/ironhack") 
-	
 
 
 
