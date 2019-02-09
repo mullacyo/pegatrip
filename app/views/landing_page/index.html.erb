@@ -1,48 +1,43 @@
-<div class="container-fluid flex flex-grow back-video">
   
-  <div class="container-fluid px-0 my-video">
-    <video autoplay muted loop id="myVideo" style="width: 100%"> 
-	    <source src="/videos/video.mp4" type="video/mp4">
-	  	Your browser does not support HTML5 video.
-	</video>
-  </div>
+  <div class="container-fluid px-0">
+	<div class="back-video">
+	    <video autoplay muted loop id="myVideo" style="width: 100%"> 
+		    <source src="/videos/video.mp4" type="video/mp4">
+		  	Your browser does not support HTML5 video.
+		</video>
+	  </div>
   
-  <div class="content" >
-		<h1 class="text-center h2 mb-3 font-weight-light welcome-text"> Welcome to Pegatrip! </h1> <br/>
-       	<p class="text-center mb-3 h6 font-italic font-weight-ligh" style="font-weight: lighter; font-family:Lucida Console; "> <i>Your journey starts now!</i> </p>
+	  <div class="content" >
+			<h1 class="text-center h2 mb-3 font-weight-light welcome-text"> Welcome to Pegatrip! </h1> <br/>
+	       	<p class="text-center mb-3 h6 font-italic font-weight-ligh" style="font-weight: lighter; font-family:Lucida Console; "> <i>Your journey starts now!</i> </p>
 
-		<p class="text-center font-weight-light mx-auto paragraph-text text-lighter" > Have you ever imagined to go for a trip but your friends are always busy <br/> and come up with different excuses all the time? This is a time to go for your RANDOM trip around the world! Let's make your travel experience even more productive! Add a course or skill that you would like to gather during your journey and we will generate 3 unexpected options around the world for you with the best places to visit on your free time in this city! Stop plan it! <i>"Adventure is just bad planning -Roald Amundsen" </i>.
-		</p> <br/>
+			 <br/>
 
 
-		<button type="button" name="wheel-modal" id="wheelModal" class="btn" style="width: 50%; color: #3ac9c6; border-color: #3ac9c6" data-toggle="modal" data-target="#wheel-modal"> Generate a random trip </button>
+			<button type="button" name="wheel-modal" id="wheelModal" class="btn" style="width: 20%; height: 10%; color: #3ac9c6; border-color: #3ac9c6; border-radius: 50px 50px" data-toggle="modal" data-target="#wheel-modal"> Generate a random trip </button>
 
-		<div class="modal fade" id="wheel-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="color: black" >
-			  <div class="modal-dialog modal-dialog-centered" role="document">
-			    <div class="modal-content" style="width: 1000px">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalCenterTitle"> Lucky wheel</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			      	<button onclick="aboutReload()" class="btn btn-outline" style="width: 100%; color: #3ac9c6; border-color: #3ac9c6"> Click me to generate a new trip</button> <br/><br/>
-			      	<div id="Reloader">
-			      		<iframe id="wheel" src="https://wheeldecide.com/e.php?id=281847" width="500" height="500" scrolling="no" frameborder="0"></iframe>
-     				</div>
-     				
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			       	
-			  </div> 
-  
-		</div>
+			<div class="modal fade" id="wheel-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="color: black" >
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content" style="width: 1000px">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalCenterTitle"> Lucky wheel</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+
+				      </div>
+				      <small class="form-text text-muted"> Please fill in your preferences for a trip or let the lucky wheel choose everything for you! </small>
+				      <div class="modal-body">
+				      	<%= render partial: '/landing_page/form' %>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				  </div>
+			</div>       	
+	   </div> 	  
+</div>
 
 
 <div class="d-flex justify-content-center" style="margin-top: -250px">
@@ -73,18 +68,41 @@
 	  </div>
 	</div>
 </div>
-<section>
 
-<!-- <button onclick = "please()">here</button>
-	<iframe  id="wheel" src="https://wheeldecide.com/e.php?id=281847" width="500" height="500" scrolling="no" frameborder="0"></iframe> -->
-		
+<p class="text-center mx-auto paragraph-text" > Have you ever imagined to go for a trip but your friends are always busy <br/> and come up with different excuses all the time? This is a time to go for your RANDOM trip around the world! Let's make your travel experience even more productive! Add a course or skill that you would like to gather during your journey and we will generate 3 unexpected options around the world for you with the best places to visit on your free time in this city! Stop plan it! <i>"Adventure is just bad planning -Roald Amundsen" </i>.</p> <br/>
 
+<hr>
+
+<h2 class="text-center"> See previous random trips for other users: </h2><br/>
+
+<div class="container-fluid mx-auto px-auto" style="width: 70%">
+<div class="row">
+  <% @trips.each do |trip| %>
+  <div class="col-sm-6" style="margin-bottom: 20px">
+  <div class="card">
+    <img src="/logo.png" class="card-img-top" alt="logo" style="width: 50%">
+    <div class="card-body">
+      <h5 class="card-title"><%=trip.location%></h5>
+      <p class="card-text"><small class="text-muted">Trip id: <%=trip.id%></small></p>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Trip created: <%=trip.created_at%></small></p>
+    </div>
+  </div>
+</div> 
+    <%end%>
+</div>
+</div>
  <footer style="margin-top: 10vh; margin-left: 5vh">
       <p> <small class="text-muted"> Generate a random trip around the world <br/>
       © Pegatrip Ltd 2019 </small></p>
  </footer>
-</section>
 
 
+<style>
 
+.navbar {
+	padding-top: 30px; 
+	position: absolute;
+}
+</style>
 

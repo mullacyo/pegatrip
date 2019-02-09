@@ -29,9 +29,8 @@ Rails.application.routes.draw do
   # get '/logout', to: 'sessions#destroy', via: [:get, :post]
   get 'auth/failure', to: redirect('/')
 
-  get '/redirect', to: 'example#redirect', as: 'redirect'
-  get '/callback', to: 'example#callback', as: 'callback'
-    
-
+  get '/redirect/:trip_id', to: 'calendar#redirect', as: 'redirect'
+  get '/callback/', to: 'calendar#callback', as: 'callback'
+  
 end
 

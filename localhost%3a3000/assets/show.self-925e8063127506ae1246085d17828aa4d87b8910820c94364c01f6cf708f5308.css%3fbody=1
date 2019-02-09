@@ -1,9 +1,14 @@
 
-.profile-pic{
+#profile-pic-center{
+	text-align: center!important;
+}
+
+.profilepic{
 
 	width:100px; 
 	height:100px; 
 	border-radius:50%;
+	margin-top: 30px;
 }
 
 
@@ -12,15 +17,6 @@
 	margin:auto;
 	text-align: center;
 }
-
-/*-------------edit page -------------*/
-
-.profile-pic-edit{
-  width:200px; 
-  height:200px; 
-}
-/*-------------end of edit page ------*/
-
 
 
 /*--------- timeline ----------------*/
@@ -120,5 +116,7 @@
     
   /*----------- end of timeline -------------*/
 
-
+#wheelbuttons{
+  background-color: black!important
+}
 

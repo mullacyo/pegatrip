@@ -96,7 +96,6 @@ GEM
     crass (1.0.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-<<<<<<< HEAD
     elasticsearch (5.0.5)
       elasticsearch-api (= 5.0.5)
       elasticsearch-transport (= 5.0.5)
@@ -105,10 +104,8 @@ GEM
     elasticsearch-transport (5.0.5)
       faraday
       multi_json
-=======
     declarative (0.0.10)
     declarative-option (0.1.0)
->>>>>>> lucky wheel and profile page
     email_validator (1.6.0)
       activemodel
     erubi (1.8.0)
@@ -312,18 +309,15 @@ DEPENDENCIES
   carrierwave (~> 1.0)
   chromedriver-helper
   clearance
-<<<<<<< HEAD
   coffee-rails (~> 4.2)
   elasticsearch-model!
   elasticsearch-rails!
-=======
   coffee-rails
->>>>>>> lucky wheel and profile page
   faker
   figaro
+  google-api-client
   http
   httparty
-  google-api-client
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook

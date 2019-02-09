@@ -10,19 +10,23 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
-/** { border: 1px solid red; }
-*/
 
+* { border: 1px solid red; }
+
+.navbar {
+  padding-top: 30px; 
+  position: absolute;
+}
 
 #myVideo {
   position: relative;
-  right: 0;
-  min-width: 100%; 
-  object-fit: contain;
+  /* right: 0; */
+  min-width: 100%;
+  /* object-fit: contain; */
   z-index: -1;
 }
 
@@ -41,12 +45,20 @@
 
 .back-video{
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) );
-
+  
 }
+  
+
+  
+
+/*.search-input{
+	opacity: 0.7;
+}*/
 
 .welcome-text {
-  color: #3ac9c6;
-  font-size: 50px;
+/*  font: 300 100px/0.8 'Great Vibes', Helvetica, sans-serif;
+*/  color: #3ac9c6;
+font-size: 50px;
   text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
 }
 
@@ -54,8 +66,8 @@
 	
 	width: 70%; 
 	margin-top: 50px; 
+	font-weight: lighter;
 	font-family: 'Open Sans';
-  font-size: 15px;
   	font-style: normal;
   	font-weight: 400;
   	src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');

@@ -16,27 +16,17 @@
 		<%end%>
    </div>
 
-   <div class="col-6">
-		<div class= "profile-pic-container" id="profile-pic-center">
-
+   <div class="col-6 mx-auto">
 			<% if @user.avatar.url == nil%>
-				<%= image_tag "/default_profile.png", :class => "profilepic"%>
+				<%= image_tag "/default_profile.png", :class => "profile-pic"%>
 			<% else %>
-			 	<%= image_tag @user.avatar.url, :class => "profilepic"%> 
+			 	<%= image_tag @user.avatar.url, :class => "profile-pic"%> 
 			<% end %>
-
-		</div>
-
 	</div>
  </div>
 
 </div>
 <br/><br/> <hr> <br/>
-
-<%= link_to "Redirect", "/redirect" %>
-
-
-
 
 <% if @user.trips == [] %>
 	<p> You don't have any trips yet. </p>
@@ -45,8 +35,9 @@
     	<% @trips.each do |trip| %>
 			  <div class="entry">
 			    <div class="title">
-			      <h3>Start date: <%=trip.start_date.strftime("%D")%> <br/>End date: <%=trip.end_date.strftime("%D")%></h3>
+			      <h3>Start date: <%=trip.start_date.strftime('%a, %d %b %Y')%> <br/>End date: <%=trip.end_date.strftime('%a, %d %b %Y')%></h3>
 			      <a href="#"><p><%=trip.location%></p></a>
+			      <%= link_to "Add to my Google Calendar", redirect_path(trip.id)%>
 			    </div>
 			    <div class="body">
 			      <img src="/sightseeing.jpg" style="width: 50%; margin-left: 20px; border-radius: 100% ">

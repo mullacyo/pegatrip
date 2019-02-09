@@ -46,11 +46,11 @@ function aboutReload() {
 // }
 
 
-function please() {
-   // var iframe = document.getElementById("wheel");
-   var innerDoc = document.getElementById("wheelbuttons");
-   innerDoc.style.backgroundColor = "black";
-}
+// function please() {
+//    // var iframe = document.getElementById("wheel");
+//    var innerDoc = document.getElementById("wheelbuttons");
+//    innerDoc.style.backgroundColor = "black";
+// }
 
 // function please () {
 // var iframe = document.getElementById('wheel');
