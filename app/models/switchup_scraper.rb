@@ -65,6 +65,8 @@ bootcamp_locations = [
  "/rankings/best-bootcamps-toronto",
  "/rankings/best-bootcamps-vancouver"]
 
+bootcamp_providers = ["/bootcamps/flatiron-school"]
+
 #made by running .get_course_links on each bootcamp_location member
 long_bootcamp_providers = ["/bootcamps/general-assembly",
  "/bootcamps/thinkful",
@@ -339,6 +341,7 @@ attr_accessor :parse_page
 				p "title: "+curscraper.get_courses[n]
 				p "run by: "+provider
 				p "operating at: "
+				p "duration: "+int_dur.to_s
 				p curscraper.get_all_info[n].css("tr").css("td")[2].text.strip.split(/\s*,\s*/)
 				p "description: "+scraped_desc
 				p "cost: "+curscraper.get_all_info[n].css("tr").css("td")[3].text.strip.gsub(/[\s,]/ ,"")[1..-4].to_i.to_s
@@ -349,12 +352,6 @@ attr_accessor :parse_page
 
 		end
 
-
-
-
 		# pp scraper2.get_all_info[0].css("tr").css("td")[1].text.strip # Should print subjects of first course, also needs an onclick checker
-
-
-
 
 end
