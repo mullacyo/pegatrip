@@ -104,11 +104,6 @@ attr_accessor :parse_page
 			parse_page.css(".tab-pane").css(".course-info").map {|course_name| course_name}.compact
 		end	
 
-	#Helpers
-		def csv_to_array
-			#turns a comma seperate list into an comma-seperated array
-		end	
-
 	private
 		# def item_header
 		# 	parse_page.css("ul").css("li").css(".ranking-item").css(".ranking-item__header").css(".ranking-item__header--left")
@@ -133,14 +128,51 @@ attr_accessor :parse_page
 	newurl = source+scraper.get_runner_links[0]
 
 	#This will get you a specific course provider's page
-	scraper2 = SwitchupScraper.new(newurl)
-	# pp scraper2.get_courses[0] #Should print course name
-	# pp scraper2.get_all_info[0].css("tr").css("td")[0].text.strip # Should print description of first course
-	# pp scraper2.get_all_info[0].css("tr").css("td")[1].text.strip # Should print subjects of first course
-	# pp scraper2.get_all_info[0].css("tr").css("td")[2].text.strip # Should print locations of first course
-	# pp scraper2.get_all_info[0].css("tr").css("td")[3].text.strip # Should print cost of first course
-	# pp scraper2.get_all_info[0].css("tr").css("td")[5].text.strip # Should print length of first course
+	# scraper2 = SwitchupScraper.new(newurl)
+	# scraper2 = SwitchupScraper.new("https://www.switchup.org/bootcamps/ironhack")
+	curscraper = SwitchupScraper.new("https://www.switchup.org/bootcamps/general-assembly")
+	
+	# p curscraper.get_courses[2]
 
-	pp scraper2.get_all_info[0].css("tr").css("td")[2].text.strip.split(/\s*,\s*/) # Should print locations of first course as an array
+
+	
+	(0..curscraper.get_courses.length).each do |n|
+
+		timing = curscraper.get_all_info[n].css("tr").css("td")[5].text.strip.split("\s") # Should print length of first course as a string e.g. "10 weeks"
+
+		if timing[1] == "weeks" or timing[1] == "week"
+			int_dur = timing[0].to_i * 7
+		elsif timing[1] == "days" or timing[1] == "day"
+			int_dur = timing[0].to_i
+		else
+			int_dur = 1
+		end		
+
+		if curscraper.get_all_info[n].css("tr").css("td")[0].css("a").any?
+			scraped_desc = curscraper.get_all_info[n].css("tr").css("td")[0].css("a").last.attributes['onclick'].value.split("$(this).parent().html('").last.split("'); return false;").first
+		else
+			scraped_desc = curscraper.get_all_info[n].css("tr").css("td")[0].text.strip # Should print description of first course if there is no 'onclick'
+		end
+
+		# Course.create(
+		# 	title: curscraper.get_courses[n], #Should print course name
+		# 	locations: curscraper.get_all_info[n].css("tr").css("td")[2].text.strip.split(/\s*,\s*/),
+		# 	description: scraped_desc,
+		# 	cost: curscraper.get_all_info[n].css("tr").css("td")[3].text.strip.gsub(/[\s,]/ ,"")[1..-4].to_i
+		# )
+
+	# end
+
+
+		p curscraper.get_courses[n]
+		p curscraper.get_all_info[n].css("tr").css("td")[2].text.strip.split(/\s*,\s*/)
+		p scraped_desc
+		p curscraper.get_all_info[n].css("tr").css("td")[3].text.strip.gsub(/[\s,]/ ,"")[1..-4].to_i
+
+	# pp scraper2.get_all_info[0].css("tr").css("td")[1].text.strip # Should print subjects of first course, also needs an onclick checker
+
+	end
+
+
 
 end
