@@ -6,10 +6,216 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#FOR SEEDING COURSES
-  bootcamp_providers = [
+#FOR SEEDING COURSES WITH DATA FROM SWITCHUP
+short_bootcamp_providers = [
    "/bootcamps/thinkful",
    "/bootcamps/flatiron-school"]
+
+bootcamp_providers = ["/bootcamps/general-assembly",
+ "/bootcamps/thinkful",
+ "/bootcamps/flatiron-school",
+ "/bootcamps/tech-talent-south",
+ "/bootcamps/digitalcrafts",
+ "/bootcamps/big-nerd-ranch",
+ "/bootcamps/netcom-learning",
+ "/bootcamps/code-career-academy",
+ "/bootcamps/georgia-tech-boot-camps",
+ "/bootcamps/refcode",
+ "/bootcamps/atlanta-code",
+ "/bootcamps/product-school",
+ "/bootcamps/hack-reactor",
+ "/bootcamps/galvanize",
+ "/bootcamps/coding-temple",
+ "/bootcamps/data-science-dojo",
+ "/bootcamps/austin-coding-academy",
+ "/bootcamps/ut-austin-boot-camp",
+ "/bootcamps/inventive-academy",
+ "/bootcamps/digital-creative-institute",
+ "/bootcamps/skillspire",
+ "/bootcamps/uw-professional-continuing-education",
+ "/bootcamps/coding-dojo",
+ "/bootcamps/berkeley-boot-camps",
+ "/bootcamps/uc-berkeley-data-science",
+ "/bootcamps/startup-institute",
+ "/bootcamps/first-step-coding",
+ "/bootcamps/launch-academy",
+ "/bootcamps/horizons-school-of-technology",
+ "/bootcamps/level",
+ "/bootcamps/the-data-incubator",
+ "/bootcamps/insight-data-science",
+ "/bootcamps/ibg-institute",
+ "/bootcamps/unc-charlotte-boot-camps",
+ "/bootcamps/actualize",
+ "/bootcamps/fullstack-academy",
+ "/bootcamps/designation",
+ "/bootcamps/metis",
+ "/bootcamps/evolve-security-academy",
+ "/bootcamps/grace-hopper-program",
+ "/bootcamps/code-platoon",
+ "/bootcamps/promotable",
+ "/bootcamps/starter-league",
+ "/bootcamps/northwestern-boot-camps",
+ "/bootcamps/tech-elevator",
+ "/bootcamps/we-can-code-it",
+ "/bootcamps/cvcc-coding-bootcamp",
+ "/bootcamps/blue-ocean-coding",
+ "/bootcamps/dev-mountain",
+ "/bootcamps/agile-for-patriots",
+ "/bootcamps/the-tech-academy",
+ "/bootcamps/turing-school-of-software-and-design",
+ "/bootcamps/skill-distillery",
+ "/bootcamps/secureset-academy",
+ "/bootcamps/davinci-coders",
+ "/bootcamps/grand-circus",
+ "/bootcamps/byte-academy",
+ "/bootcamps/learningfuze",
+ "/bootcamps/uc-irvine-boot-camps",
+ "/bootcamps/digital-workshops",
+ "/bootcamps/launchcode",
+ "/bootcamps/accelerate-tech-learning",
+ "/bootcamps/disruption-institute",
+ "/bootcamps/centriq-training",
+ "/bootcamps/codesmith",
+ "/bootcamps/sabio",
+ "/bootcamps/the-dev-masters",
+ "/bootcamps/beach-coders",
+ "/bootcamps/upscale-academy",
+ "/bootcamps/ucla-extension-boot-camps",
+ "/bootcamps/academy-x",
+ "/bootcamps/city-internships",
+ "/bootcamps/usc-viterbi-data-analytics-boot-camp",
+ "/bootcamps/ironhack",
+ "/bootcamps/wyncode",
+ "/bootcamps/4geeks-academy",
+ "/bootcamps/the-software-guild",
+ "/bootcamps/prime-digital-academy",
+ "/bootcamps/smart-factory",
+ "/bootcamps/savvy-coders",
+ "/bootcamps/fast-track-d",
+ "/bootcamps/nashville-software-school",
+ "/bootcamps/app-academy",
+ "/bootcamps/nyc-data-science-academy",
+ "/bootcamps/brainstation",
+ "/bootcamps/product-gym",
+ "/bootcamps/noble-desktop",
+ "/bootcamps/sales-bootcamp",
+ "/bootcamps/new-york-code-and-design-academy",
+ "/bootcamps/technosoft-academy",
+ "/bootcamps/velocity-360",
+ "/bootcamps/shillington-school",
+ "/bootcamps/the-recurse-center-aka-hacker-school",
+ "/bootcamps/turn-to-tech",
+ "/bootcamps/nyc-career-centers",
+ "/bootcamps/principal-analytics-prep",
+ "/bootcamps/columbia-engineering-coding-boot-camp",
+ "/bootcamps/think-academy",
+ "/bootcamps/2020shift",
+ "/bootcamps/pursuit",
+ "/bootcamps/nyim-training",
+ "/bootcamps/microsoft-research-data-science-summer-school",
+ "/bootcamps/bit-bootcamp",
+ "/bootcamps/hackbright-academy",
+ "/bootcamps/kickstart-coding",
+ "/bootcamps/learners-guild",
+ "/bootcamps/redwood-code-academy",
+ "/bootcamps/orange-county-code-school",
+ "/bootcamps/woz-u",
+ "/bootcamps/university-of-arizona-boot-camps",
+ "/bootcamps/epicodus",
+ "/bootcamps/alchemy-code-lab",
+ "/bootcamps/pdx-code-guild",
+ "/bootcamps/momentum",
+ "/bootcamps/project-shift",
+ "/bootcamps/v-school",
+ "/bootcamps/helio-training-bootcamp",
+ "/bootcamps/bottega",
+ "/bootcamps/startup-ignition",
+ "/bootcamps/devpoint-labs",
+ "/bootcamps/codeup",
+ "/bootcamps/learn-academy",
+ "/bootcamps/origin-code-academy",
+ "/bootcamps/uc-san-diego-extension-boot-camps",
+ "/bootcamps/softstack-factory",
+ "/bootcamps/springboard",
+ "/bootcamps/holberton-school",
+ "/bootcamps/the-job-hackers",
+ "/bootcamps/codify-academy",
+ "/bootcamps/rithm-school",
+ "/bootcamps/tradecraft",
+ "/bootcamps/make-school",
+ "/bootcamps/growthx-academy",
+ "/bootcamps/alwayshired",
+ "/bootcamps/zipfian-academy",
+ "/bootcamps/fire-bootcamp",
+ "/bootcamps/code-fellows",
+ "/bootcamps/kal-academy",
+ "/bootcamps/nucamp",
+ "/bootcamps/ada-developers-academy",
+ "/bootcamps/seattle-u-web-development-certificate",
+ "/bootcamps/42",
+ "/bootcamps/suncoast-developers-guild",
+ "/bootcamps/betamore",
+ "/bootcamps/gw-boot-camp",
+ "/bootcamps/le-wagon",
+ "/bootcamps/ubiqum-code-academy",
+ "/bootcamps/codaisseur",
+ "/bootcamps/the-app-academy-nl",
+ "/bootcamps/codingnomads",
+ "/bootcamps/institute-of-code",
+ "/bootcamps/coding-experiences",
+ "/bootcamps/code-remote",
+ "/bootcamps/intellipaat",
+ "/bootcamps/jaaga",
+ "/bootcamps/uxer-school",
+ "/bootcamps/skylab-coders-academy",
+ "/bootcamps/codeworks",
+ "/bootcamps/neoland",
+ "/bootcamps/barcelona-code-school",
+ "/bootcamps/world-tech-makers",
+ "/bootcamps/codely",
+ "/bootcamps/careerfoundry",
+ "/bootcamps/spiced-academy",
+ "/bootcamps/data-science-retreat",
+ "/bootcamps/bogota-bootcamp",
+ "/bootcamps/plataforma-5",
+ "/bootcamps/digital-house",
+ "/bootcamps/hyperion-development",
+ "/bootcamps/school-of-it",
+ "/bootcamps/wethinkcode_",
+ "/bootcamps/xccelerate",
+ "/bootcamps/reboot-ai",
+ "/bootcamps/reactjs-academy",
+ "/bootcamps/edit-disruptive-digital-education",
+ "/bootcamps/makers-academy",
+ "/bootcamps/red-academy",
+ "/bootcamps/founders-and-coders",
+ "/bootcamps/we-got-coders",
+ "/bootcamps/science-to-data-science",
+ "/bootcamps/cambridge-spark-ltd",
+ "/bootcamps/constructor-labs",
+ "/bootcamps/mums-in-technology",
+ "/bootcamps/23-code-street",
+ "/bootcamps/asi-data-science",
+ "/bootcamps/destination-dev",
+ "/bootcamps/coder-academy",
+ "/bootcamps/bedu-tech",
+ "/bootcamps/muktek-academy",
+ "/bootcamps/hackschool",
+ "/bootcamps/lighthouse-labs",
+ "/bootcamps/decode-mtl",
+ "/bootcamps/jedha",
+ "/bootcamps/alpha-camp",
+ "/bootcamps/hackwagon-academy",
+ "/bootcamps/israel-tech-challenge",
+ "/bootcamps/real-time-college",
+ "/bootcamps/10x-org-il",
+ "/bootcamps/hackeryou",
+ "/bootcamps/bitmaker-general-assembly",
+ "/bootcamps/product-faculty",
+ "/bootcamps/weclouddata",
+ "/bootcamps/uoft-scs-boot-camps",
+ "/bootcamps/codecore-bootcamp"]
+
 
   source = "https://www.switchup.org"
 
@@ -58,20 +264,26 @@ class SwitchupScraper
       
       curscraper.get_courses.each_with_index do |course, n|
 
-        timing = curscraper.get_all_info[n].css("tr").css("td")[5].text.strip.split("\s") # Should print length of first course as a string e.g. "10 weeks"
-
-        if timing[1] == "weeks" or timing[1] == "week"
-          int_dur = timing[0].to_i * 7
-        elsif timing[1] == "days" or timing[1] == "day"
-          int_dur = timing[0].to_i
-        else
+        if curscraper.get_all_info[n].css("tr").css("td")[5].nil?
           int_dur = 1
-        end   
+        else
+          timing = curscraper.get_all_info[n].css("tr").css("td")[5].text.strip.split("\s") # Should print length of first course as a string e.g. "10 weeks"
+          if timing[1] == "weeks" or timing[1] == "week"
+            int_dur = timing[0].to_i * 7
+          elsif timing[1] == "days" or timing[1] == "day"
+            int_dur = timing[0].to_i
+          else
+            int_dur = 1
+          end   
+
+        end
 
         if curscraper.get_all_info[n].css("tr").css("td")[0].css("a").any?
           scraped_desc = curscraper.get_all_info[n].css("tr").css("td")[0].css("a").last.attributes['onclick'].value.split("$(this).parent().html('").last.split("'); return false;").first
+        elsif curscraper.get_all_info[n].css("tr").css("td")[0].css
+          scraped_desc = "Please check out the company's official website for a clearer description"
         else
-          scraped_desc = curscraper.get_all_info[n].css("tr").css("td")[0].text.strip # Should print description of first course if there is no 'onclick'
+          scraped_desc = curscraper.get_all_info[n].css("tr").css("td")[0].css("p").strip # Should print description of first course if there is no 'onclick'
         end
 
         Course.create(
@@ -80,7 +292,8 @@ class SwitchupScraper
           description: scraped_desc,
           course_provider: provider[11..-1].gsub("-", " ").titleize,
           duration: int_dur,
-          cost: curscraper.get_all_info[n].css("tr").css("td")[3].text.strip.gsub(/[\s,]/ ,"")[1..-4].to_i.to_s
+          cost: curscraper.get_all_info[n].css("tr").css("td")[3].text.strip.gsub(/[\s,]/ ,"")[1..-4].to_i.to_s,
+          link: "#{source}#{provider}"
         )
       end
 
@@ -92,7 +305,8 @@ class SwitchupScraper
       description: "Learn to build web apps! In NEXT Academy's job-guaranteed Full-Stack Web Development Bootcamp, students learn how to think and solve problems like a programmer. The end results are graduates with the core competency to build anything. They’ll also be able to work as a world-class junior developer and embrace new technology-stacks effortlessly. By the end of the program, graduates would have built sites like Airbnb, Quora and more. Students nearing the end of the course will pitch ideas that they’ll build as a team project, giving them real-world experience of working in a team and building production-ready applications. This course comprises of highly passionate and committed students who enhance the learning experience for everyone. Many of the graduates end up collaborating and helping each other grow in their career at the end of the program. The primary technology used in this course includes but is not limited to Ruby, Ruby-on-Rails, Sinatra, SQLite, Postgres, Redis, Javascript, HTML, CSS and more.",
       course_provider: "NEXT Academy",
       duration: 70,
-      cost: 3025
+      link: "https://www.switchup.org/bootcamps/next-academy",
+      cost: 3025 
     )
 
     Course.create(
@@ -101,6 +315,7 @@ class SwitchupScraper
       description: "Learn how to build beautiful websites! With NEXT Academy's Front-End Web Development Bootcamp, you can choose to do this full-time for 2 weeks. You will learn how to wireframe, code beautiful websites, create animations and even learn to write game logic for their very own games like Tic-tac-toe and Hangman. You will also learn how to connect to APIs and use Node.js to power simple apps. The primary technology used in this course includes but is not limited to HTML, CSS, JavaScript and Node.js.",
       course_provider: "NEXT Academy",
       duration: 14,
+      link: "https://www.switchup.org/bootcamps/next-academy",
       cost: 910
     )
 
@@ -110,6 +325,7 @@ class SwitchupScraper
       description: "Learn how to build beautiful websites! With NEXT Academy's Front-End Web Development Bootcamp, you can choose to do this part-time, remotely for 8 weeks. You will learn how to wireframe, code beautiful websites, create animations and even learn to write game logic for their very own games like Tic-tac-toe and Hangman. You will also learn how to connect to APIs and use Node.js to power simple apps. The primary technology used in this course includes but is not limited to HTML, CSS, JavaScript and Node.js.",
       course_provider: "NEXT Academy",
       duration: 56,
+      link: "https://www.switchup.org/bootcamps/next-academy",
       cost: 650
     )
     
@@ -121,7 +337,7 @@ class SwitchupScraper
 
 #FOR TESTING ONLY 
 #This seeding exists to test database relationships are working. Locations do not match up, and descriptions are pure filler.
-  # Seed Dummy Users
+ #  # Seed Dummy Users
  #    user = {}
  #    user['password'] = 'password'
 
@@ -138,10 +354,10 @@ class SwitchupScraper
  #    course = {}
  #    ActiveRecord::Base.transaction do
  #    	30.times do
- #    		course['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
+ #    		course['locations'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample(3)
  #    		course['title'] = Faker::Hipster.sentence(3)
  #    		course['description'] = Faker::Hipster.paragraph(2, false, 4)
- #    		course['course_type'] = ["Coding", "Karate", "Yoga", "Horse riding", "Mountain Climbing", "Arts"].sample
+ #    		course['course_provider'] = "Next Academy"
  #    		course['start_date'] = Faker::Date.forward(rand(1..180))
  #    		course['end_date'] = course['start_date'] + rand(7..120)
  #    		course['duration'] = course['end_date'] - course['start_date']
