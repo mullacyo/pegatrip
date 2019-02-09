@@ -17,6 +17,15 @@
 /** { border: 1px solid red; }
 */
 
+#search-div{
+  margin-left: 10px;
+  padding-top: 7px;
+}
+
+#search{
+  opacity: 0.6;
+  height: 38px;
+}
 
 #myVideo {
   position: relative;

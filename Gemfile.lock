@@ -94,6 +94,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    declarative (0.0.10)
+    declarative-option (0.1.0)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     elasticsearch (5.0.5)
@@ -104,8 +106,6 @@ GEM
     elasticsearch-transport (5.0.5)
       faraday
       multi_json
-    declarative (0.0.10)
-    declarative-option (0.1.0)
     email_validator (1.6.0)
       activemodel
     erubi (1.8.0)
@@ -309,10 +309,9 @@ DEPENDENCIES
   carrierwave (~> 1.0)
   chromedriver-helper
   clearance
-  coffee-rails (~> 4.2)
+  coffee-rails
   elasticsearch-model!
   elasticsearch-rails!
-  coffee-rails
   faker
   figaro
   google-api-client

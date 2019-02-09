@@ -6,5 +6,9 @@ class LandingPageController < ApplicationController
 			@trips << trip
 			@trips.uniq!
 		end
+
+		# if params[:location].present?
+		# 	redirect_to trips_path
+		# end
 	end
 end
