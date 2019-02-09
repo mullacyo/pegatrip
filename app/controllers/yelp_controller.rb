@@ -50,7 +50,7 @@ class YelpController < ApplicationController
   					title: y['name'], 
   					type: "Food", 
   					description: "No description is available for this item yet", #Placeholder text, because Yelp doesn't provide a description from its API
-  					location: y['location'], #note that location saves as a hash containing latitude, longitude 
+  					location: y['coordinates'], #note that location saves as a hash containing latitude, longitude 
   					api_reference: y['id'], 
   					api_source: "Yelp"
   				)
