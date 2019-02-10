@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #FOR SEEDING COURSES WITH DATA FROM SWITCHUP
-bootcamp_providers = [
+short_bootcamp_providers = [
    "/bootcamps/thinkful",
    "/bootcamps/flatiron-school"]
 
-long_bootcamp_providers = ["/bootcamps/general-assembly",
+bootcamp_providers = ["/bootcamps/general-assembly",
  "/bootcamps/thinkful",
  "/bootcamps/flatiron-school",
  "/bootcamps/tech-talent-south",

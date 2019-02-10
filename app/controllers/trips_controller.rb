@@ -5,6 +5,118 @@ class TripsController < ApplicationController
     #Before page loads, run a Yelp seach to populate the database
         url = "https://api.yelp.com/v3/businesses/search"
 
+        @all_locations = ["NYC", "San Francisco", "Austin",
+             "Boston",
+             "Atlanta",
+             "Chicago",
+             "London",
+             "Los Angeles",
+             "Melbourne",
+             "Seattle",
+             "Sydney",
+             "Washington",
+             "D.C.",
+             "Dallas",
+             "Providence",
+             "San Diego",
+             "Santa Monica",
+             "Denver",
+             "Singapore",
+             "Brisbane",
+             "Toronto",
+             "Online",
+             "Detroit",
+             "Houston",
+             "Miami",
+             "Minneapolis",
+             "Orlando",
+             "Philadelphia",
+             "Phoenix",
+             "Portland",
+             "Raleigh-Durham",
+             "Salt Lake City",
+             "Tampa",
+             "Asheville",
+             "Columbus",
+             "Wilmington",
+             "Charlotte",
+             "New Orleans",
+             "San Antonio",
+             "Boulder",
+             "San Jose",
+             "Savannah",
+             "Bellevue",
+             "Orange County",
+             "Silicon Valley",
+             "Orange City",
+             "Paris",
+             "Barcelona",
+             "Amsterdam",
+             "Vancouver",
+             "Berkeley",
+             "Oakland",
+             "Santa Clara",
+             "Berlin",
+             "Lehi",
+             "Evanston",
+             "Cleveland",
+             "Cincinnati",
+             "Pittsburgh",
+             "Irvine",
+             "Colorado Springs",
+             "Grand Rapids",
+             "Bangalore",
+             "Kansas City",
+             "Free",
+             "Madrid",
+             "Mexico City",
+             "Sao Paulo",
+             "Caracas",
+             "Santiago",
+             "Maracaibo",
+             "Louisville",
+             "Saint Louis",
+             "Chattanooga",
+             "Memphis",
+             "Nashville",
+             "Costa Rica",
+             "New Jersey",
+             "New Haven",
+             "Arlington",
+             "Tel Aviv",
+             "Belo Horizonte",
+             "Lille",
+             "Bordeaux",
+             "Copenhagen",
+             "Lisbon",
+             "Nantes",
+             "Casablanca",
+             "Marseille",
+             "Brussels",
+             "Montreal",
+             "Rio de Janeiro",
+             "Shanghai",
+             "Chengdu",
+             "Tokyo",
+             "Bali",
+             "Milan",
+             "Buenos Aires",
+             "Kyoto",
+             "Truckee",
+             "Playa del Carmen",
+             "Valencia",
+             "Bogota",
+             "Johannesburg",
+             "Cape Town",
+             "Hong Kong",
+             "Porto",
+             "Medellin",
+             "Guadalajara",
+             "Victoria",
+             "Halifax",
+             "Calgary",
+             "Kuala Lumpur"]  
+
         #If parameter queries are present, will show index of activities
         if params[:location].present?
 
@@ -22,7 +134,7 @@ class TripsController < ApplicationController
 
             #Populate Activities
             activity_search_parameters = {
-            term: ["fun"].sample,
+            term: ["fun", "casual", "coffee", "sports"].sample,
             location: params[:location],
             }
 
@@ -124,8 +236,10 @@ class TripsController < ApplicationController
 
 
         #Retrieves samples from ActiveRecord to generate the trip
-        # @courses = Course.where("params[:location] = ANY (locations)").sample(3)
-        @courses = Course.all.sample(3)
+        str = params[:location] 
+
+        @courses = Course.where(" '#{params[:location]}' = ANY (locations)").sample(3)
+        # @courses = Course.all.sample(3)
         @activities = Action.where(location: params[:location]).where(type: "Activity").sample(9)
         @restaurants = Action.where(location: params[:location]).where(type: "Food").sample(9)
         @sightseeings = Action.where(location: params[:location]).where(type: "Sightseeing").sample(9)
@@ -225,7 +339,6 @@ class TripsController < ApplicationController
         trip.user_id = current_user.id
 
         if trip.save
-            # CoursesTrip.new(trip_id: trip.id, course_id: )
             action_params.values.each do |value|
                 ActionsTrip.create(trip_id: trip.id, action_id: value)
             end
@@ -247,10 +360,7 @@ class TripsController < ApplicationController
         @activities = @trip.actions.where(type: "Activity")
         @sightseeings = @trip.actions.where(type: "Sightseeing")
         @foods = @trip.actions.where(type: "Food")
-        @course = @trip.courses.last
-       
-       # Course.where(" 'Tokyo' = ANY (locations)")
-
+        @course = @trip.courses.first
     end
 
     def edit
