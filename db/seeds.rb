@@ -332,9 +332,6 @@ class SwitchupScraper
   end
       
 
-
-
-
 #FOR TESTING ONLY 
 #This seeding exists to test database relationships are working. Locations do not match up, and descriptions are pure filler.
   # Seed Dummy Users
@@ -351,16 +348,16 @@ class SwitchupScraper
 	# end   
 
   # Seed Dummy Trips
-    trip = {}
-    ActiveRecord::Base.transaction do
-    	15.times do
-    		trip['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
-    		trip['start_date'] = Faker::Date.forward(rand(20..180))
-    		trip['end_date'] = trip['start_date'] + rand(14..182)
-    		trip['user_id'] = rand(1..5)
-    		Trip.create(trip)
-    	end
-    end
+    # trip = {}
+    # ActiveRecord::Base.transaction do
+    # 	15.times do
+    # 		trip['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
+    # 		trip['start_date'] = Faker::Date.forward(rand(20..180))
+    # 		trip['end_date'] = trip['start_date'] + rand(14..182)
+    # 		trip['user_id'] = rand(1..5)
+    # 		Trip.create(trip)
+    # 	end
+    # end
 
   # Seed Course/Trip realtionships
   # 	courses_trip = {}

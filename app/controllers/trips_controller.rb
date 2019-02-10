@@ -124,10 +124,11 @@ class TripsController < ApplicationController
 
 
         #Retrieves samples from ActiveRecord to generate the trip
+        # @courses = Course.where("params[:location] = ANY (locations)").sample(3)
         @courses = Course.all.sample(3)
-        @activities = Action.where(type: "Activity").sample(9)
-        @restaurants = Action.where(type: "Food").sample(9)
-        @sightseeings = Action.where(type: "Sightseeing").sample(9)
+        @activities = Action.where(location: params[:location]).where(type: "Activity").sample(9)
+        @restaurants = Action.where(location: params[:location]).where(type: "Food").sample(9)
+        @sightseeings = Action.where(location: params[:location]).where(type: "Sightseeing").sample(9)
 
         @activities_requests = []
         @sights_requests = []
@@ -216,11 +217,22 @@ class TripsController < ApplicationController
     end #end of index
 
     def new
-    
+        trip = Trip.new
     end
 
     def create
-    
+        trip = Trip.new(trip_params)
+        trip.user_id = current_user.id
+
+        if trip.save
+            # CoursesTrip.new(trip_id: trip.id, course_id: )
+            flash[:message] = action_params
+            redirect_to user_path(current_user)
+        else
+            flash[:message] = "Try again."
+            redirect_to user_path(current_user)
+        end
+        
     end
 
     def show
@@ -250,5 +262,29 @@ class TripsController < ApplicationController
             flash[:danger] = "Your action was not deleted, please go back"
         end
     end
+
+    private
+    def trip_params
+        params.permit(
+            :location,
+            :start_date,
+            :end_date
+            )
+    end
+    
+    def action_params
+        params.permit(
+            :action_id0,
+            :action_id1,
+            :action_id2,
+            :action_id3,
+            :action_id4,
+            :action_id5,
+            :action_id6,
+            :action_id7,
+            :action_id8
+        )
+    end
+
 
 end

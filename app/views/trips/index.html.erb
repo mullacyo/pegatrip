@@ -46,6 +46,7 @@
 <%# ========== END OF CUSTOMIZED NAV BAR ========== %>
 <%# ========== START OF BOOTSTRAP CAROUSEL ========== %>
 
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" >
     <div class="carousel-item active">
@@ -54,6 +55,7 @@
             <h3><%= @courses[0].title%></h3>
             <p><%= @courses[0].locations %></p>
             <p><%= @courses[0].description %></p>
+            <p class="courseid d-none"><%=@courses[0].id%></p>
         </div>
     </div>
     <div class="carousel-item">
@@ -62,6 +64,7 @@
             <h3><%= @courses[1].title%></h3>
             <p><%= @courses[1].locations %></p>
             <p><%= @courses[1].description %></p>
+            <p class="courseid d-none"><%=@courses[1].id%></p>
         </div>
     </div>
     <div class="carousel-item">
@@ -70,6 +73,7 @@
             <h3><%= @courses[2].title%></h3>
             <p><%= @courses[2].locations %></p>
             <p><%= @courses[2].description %></p>
+            <p class="courseid d-none"><%=@courses[2].id%></p>
         </div>
     </div>
   </div>
@@ -84,6 +88,35 @@
 </div>
 <%# ========== END OF BOOTSTRAP CAROUSEL ========== %>
 <%# ========== START OF CONTENT ========== %>
+
+
+<div id="trips-container" class="justify-content-center">
+  <%=form_with model: @trip, local: true do |f|%>
+ 
+    <%= f.hidden_field :location, value: params[:location]%>
+    <%= f.hidden_field :start_date, value: params[:start_date]%>
+    <%= f.hidden_field :end_date, value: params[:end_date]%>
+
+    <%= f.hidden_field :action_id0, value: "test", :id => 'act_id0'%>
+    <%= f.hidden_field :action_id1, value: "test", :id => 'act_id1'%>
+    <%= f.hidden_field :action_id2, value: "test", :id => 'act_id2'%>
+    <%= f.hidden_field :action_id3, value: "test", :id => 'act_id3'%>
+    <%= f.hidden_field :action_id4, value: "test", :id => 'act_id4'%>
+    <%= f.hidden_field :action_id5, value: "test", :id => 'act_id5'%>
+    <%= f.hidden_field :action_id6, value: "test", :id => 'act_id6'%>
+    <%= f.hidden_field :action_id7, value: "test", :id => 'act_id7'%>
+    <%= f.hidden_field :action_id8, value: "test", :id => 'act_id8'%>
+   
+    <div id="submit-wrapper" style="text-align: center; margin-bottom: 5vh">
+        <%if signed_in? %>
+                <%= f.submit "Save this trip", class: "btn btn-outline-success", style: "width: 75vw" %>
+        <% else %>
+            <span style="font-size:1.5rem">Please log in to save your trip</span>
+        <% end %>
+    </div>
+  <%end%>
+</div>
+
 
 <div id="content" style="margin: 20px">
 </div>
@@ -215,8 +248,11 @@ height: 180px;
 </style>
 
 <script type="text/javascript">
-  $('.carousel').carousel({
-      interval: false,
-      data-interval: false
-  });   
+  $(document).ready(function() {      
+     $('.carousel').carousel('pause');
+  });
+
+  // $('#act_id0').val("3")
+
+
 </script>>
