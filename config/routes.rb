@@ -15,6 +15,15 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  resources :trips do
+    resources :actions,
+      only: [:create, :edit, :update, :destroy]
+    end
+
+    resources :trips do
+    resources :course,
+      only: [:destroy]
+    end
 
   resources :trips 
   resources :actions do
