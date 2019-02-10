@@ -42,6 +42,13 @@ class TripsController < ApplicationController
     end
 
     def show
+        @trip = Trip.find(params[:id])
+
+        @activities = []
+        Action.where(type:"Activity").sample(3).each do |activity|
+            @activities << activity
+        end
+
     end
 
     def edit

@@ -107,3 +107,8 @@ a:hover,
 	height:40px; 
 	border-radius:50%;
 }
+
+h5{
+  font-family: Arial, Helvetica, sans-serif!important;
+  letter-spacing: 0px!important;
+}

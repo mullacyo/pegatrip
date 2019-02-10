@@ -1,0 +1,90 @@
+<div class="trip-title">
+	<h1 class="text-center h2 mb-3 font-weight-light"> Your trip to: <%=@trip.location%></h1>
+	<p class="text-center mb-3 h6 font-italic font-weight-ligh" style="color: #D7E5DE">Starts from: <strong> <%= @trip.start_date.strftime('%a, %d %b %Y')%> </strong> and ends on: <strong> <%= @trip.end_date.strftime('%a, %d %b %Y')%> </strong></p>
+	<br/>
+
+	<p class="text-center"> Something about the course which i coudn't access to, stupid me, what to do </p>
+</div>
+<div class="darken-overlay">
+	<img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" id="coding-pic">
+</div> <br/><br/>
+
+<div class="content-title flex-container text-center">
+    <div>
+        <h1 class="text-center h2 mb-3 font-weight-light d-inline">Activities</h1> 
+        <button type="button" class="btn btn-default btn-sm" style="margin-top: -12px">
+                <i class="fas fa-edit" ></i>
+        </button>    
+    </div>
+</div> <br/>
+
+<div class="activities-container d-flex justify-content-center" style="flex-grow">
+    <% @activities.each do |a| %>
+        <div class="card actions">
+                <img class="card-img-top" src="https://vignette.wikia.nocookie.net/blogclan-2/images/b/b9/Random-image-15.jpg/revision/latest?cb=20160706220047" alt="Card image cap" style="">
+                <div class="card-body">
+                    <h5 class="card-title"><%=a.title%></h5>
+                    <p class="card-text"><%=a.description%></p>
+                    <a href="#" class="btn" style="color: #3E8989; border-color: #3E8989; ">See more details</a>
+                </div>
+        </div>
+    <% end %>
+</div><br/>
+
+<div class="content-title flex-container text-center">
+    <div>
+        <h1 class="text-center h2 mb-3 font-weight-light d-inline">Food</h1> 
+        <button type="button" class="btn btn-default btn-sm" style="margin-top: -12px">
+                <i class="fas fa-edit" ></i>
+        </button>    
+    </div>
+</div> <br/>
+
+<div class="activities-container d-flex justify-content-center" style="flex-grow">
+    <% @activities.each do |a| %>
+        <div class="card actions">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg" alt="Card image cap" style="">
+                <div class="card-body">
+                    <h5 class="card-title"><%=a.title%></h5>
+                    <p class="card-text"><%=a.description%></p>
+                    <a href="#" class="btn" style="color: #3E8989; border-color: #3E8989; ">See more details</a>
+                </div>
+        </div>
+    <% end %>
+</div><br/>
+
+<div class="content-title flex-container text-center">
+    <div>
+        <h1 class="text-center h2 mb-3 font-weight-light d-inline">Sightseeings</h1> 
+        <button type="button" class="btn btn-default btn-sm" style="margin-top: -12px">
+                <i class="fas fa-edit" ></i>
+        </button>    
+    </div>
+</div> <br/>
+
+<div class="activities-container d-flex justify-content-center" style="flex-grow">
+    <% @activities.each do |a| %>
+        <div class="card actions">
+                <img class="card-img-top" src="https://media.cntraveler.com/photos/59cd09dc52df651f0732f428/master/pass/Eiffel-Disco_GettyImages-534953254.jpg" alt="Card image cap" style="">
+                <div class="card-body">
+                    <h5 class="card-title"><%=a.title%></h5>
+                    <p class="card-text"><%=a.description%></p>
+                    <a href="#" class="btn" style="color: #3E8989; border-color: #3E8989; ">See more details</a>
+                </div>
+        </div>
+    <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+<style>
+.navbar {
+	position: absolute;
+}
+</style>
