@@ -33,28 +33,28 @@ class YelpController < ApplicationController
   		# Save each yelp result to the database as an action
   		@yelps.each do |y|
   			# Check if the yelp result was saved before
-  			if Action.find_by(api_reference: y['id']).present?
- 				#Skip
- 			  else
-	  			# If new, make a new entry
+    			if Action.find_by(api_reference: y['id']).present?
+   				#Skip
+   			  else
+  	  			# If new, make a new entry
 
-	  			# To prevent errors if Yelp has no price data
-	  			if y['price'].present?
-	  				yelp_price = y['price'].length
-	  			else
-	  				yelp_price = nil
-	  			end
+  	  			# To prevent errors if Yelp has no price data
+  	  			if y['price'].present?
+  	  				yelp_price = y['price'].length
+  	  			else
+  	  				yelp_price = nil
+  	  			end
 
-  				Action.create(
-  					price: yelp_price, 
-  					title: y['name'], 
-  					type: "Food", 
-  					description: "No description is available for this item yet", #Placeholder text, because Yelp doesn't provide a description from its API
-  					location: y['coordinates'], #note that location saves as a hash containing latitude, longitude 
-  					api_reference: y['id'], 
-  					api_source: "Yelp"
-  				)
- 			end
+    				Action.create(
+    					price: yelp_price, 
+    					title: y['name'], 
+    					type: "Food", 
+    					description: "No description is available for this item yet", #Placeholder text, because Yelp doesn't provide a description from its API
+    					location: y['coordinates'], #note that location saves as a hash containing latitude, longitude 
+    					api_reference: y['id'], 
+    					api_source: "Yelp"
+    				)
+   			end
   		end
   	end
 

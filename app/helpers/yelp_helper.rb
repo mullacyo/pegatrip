@@ -2,7 +2,9 @@ module YelpHelper
 
 	def float_path(float)
 		#if a float ends with '.5', add '_half'
-		if float % 1 == 0.5
+		if float.nil?
+			return 0
+		elsif float.to_f % 1 == 0.5
 			return (float-0.5).to_i.to_s + "_half"
 		else
 			return float.to_i
