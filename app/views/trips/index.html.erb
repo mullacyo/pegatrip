@@ -91,21 +91,23 @@
 
 
 <div id="trips-container" class="justify-content-center">
-  <%=form_with model: @trip, local: true do |f|%>
+  <%=form_with model: @trip, :id => 'creation-form', local: true do |f|%>
  
     <%= f.hidden_field :location, value: params[:location]%>
     <%= f.hidden_field :start_date, value: params[:start_date]%>
     <%= f.hidden_field :end_date, value: params[:end_date]%>
 
-    <%= f.hidden_field :action_id0, value: "test", :id => 'act_id0'%>
-    <%= f.hidden_field :action_id1, value: "test", :id => 'act_id1'%>
-    <%= f.hidden_field :action_id2, value: "test", :id => 'act_id2'%>
-    <%= f.hidden_field :action_id3, value: "test", :id => 'act_id3'%>
-    <%= f.hidden_field :action_id4, value: "test", :id => 'act_id4'%>
-    <%= f.hidden_field :action_id5, value: "test", :id => 'act_id5'%>
-    <%= f.hidden_field :action_id6, value: "test", :id => 'act_id6'%>
-    <%= f.hidden_field :action_id7, value: "test", :id => 'act_id7'%>
-    <%= f.hidden_field :action_id8, value: "test", :id => 'act_id8'%>
+    <%= f.hidden_field :course_id, value: "test", :id => "important-course-id"%>
+
+    <%= f.hidden_field :action_id0, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id1, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id2, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id3, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id4, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id5, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id6, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id7, value: "test", :class => "hidden-action-id"%>
+    <%= f.hidden_field :action_id8, value: "test", :class => "hidden-action-id"%>
    
     <div id="submit-wrapper" style="text-align: center; margin-bottom: 5vh">
         <%if signed_in? %>
@@ -252,7 +254,31 @@ height: 180px;
      $('.carousel').carousel('pause');
   });
 
-  // $('#act_id0').val("3")
+  $(document).ready(function() {
+  $("#creation-form").submit(function() {
+
+    //replaces hidden-action-id values with the values of the cards currently in the content div
+    $('#trips-container .hidden-action-id').each(function(index, value){
+      $(this).val( $('#content .actionid').eq(index).text())
+    })
+
+    $("#important-course-id").val($(".carousel-item.active .courseid").text())    
+
+    // do the extra stuff here
+      // $.ajax({
+      //  type: "POST",
+      //   url: "mail.php",
+      //   data: $(this).serialize(),
+      //   success: function() {
+      //     $('.simple-sucess').fadeIn(100).show();
+      //     $('.contact_form').fadeOut(100).hide();
+      //     $('.simple_error').fadeOut(100).hide();
+
+      //    }
+      // })
+
+  })
+})
 
 
 </script>>

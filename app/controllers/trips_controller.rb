@@ -226,7 +226,13 @@ class TripsController < ApplicationController
 
         if trip.save
             # CoursesTrip.new(trip_id: trip.id, course_id: )
-            flash[:message] = action_params
+            action_params.values.each do |value|
+                ActionsTrip.create(trip_id: trip.id, action_id: value)
+            end
+
+            CoursesTrip.create(trip_id: trip.id, course_id: course_params['course_id'])
+
+            flash[:message] = "Congrats on making a trip"
             redirect_to user_path(current_user)
         else
             flash[:message] = "Try again."
@@ -286,5 +292,10 @@ class TripsController < ApplicationController
         )
     end
 
+    def course_params
+        params.permit(
+            :course_id
+        )
+    end
 
 end
