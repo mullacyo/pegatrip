@@ -42,6 +42,15 @@ class TripsController < ApplicationController
     end
 
     def show
+        @trip = Trip.find(params[:id])
+
+        @activities = @trip.actions.where(type: "Activity")
+        @sightseeings = @trip.actions.where(type: "Sightseeing")
+        @foods = @trip.actions.where(type: "Food")
+        @course = @trip.courses.last
+       
+       # Course.where(" 'Tokyo' = ANY (locations)")
+
     end
 
     def edit
@@ -51,6 +60,13 @@ class TripsController < ApplicationController
     end
     
     def destroy
+        @actionstrip = ActionsTrip.where(action_id: params[:id]).find_by(trip_id: params[:trip_id])
+        if @actionstrip.destroy
+            redirect_to root_path
+        else 
+            redirect_to root_path
+            flash[:danger] = "Your action was not deleted, please go back"
+        end
     end
 
 end

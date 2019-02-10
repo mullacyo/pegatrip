@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_154246) do
     t.datetime "time"
   end
 
-  create_table "actions_trips", id: false, force: :cascade do |t|
+  create_table "actions_trips", force: :cascade do |t|
     t.bigint "action_id"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
