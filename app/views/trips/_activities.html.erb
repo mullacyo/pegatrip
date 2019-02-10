@@ -8,13 +8,19 @@
 </div>
 
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
-    <% @activities[x..y].each do |a| %>
+    <% @activities[x..y].each_with_index do |a, n| %>
         <div class="card" style="width: 18rem; overflow: hidden">
-                <img class="card-img-top" src="https://vignette.wikia.nocookie.net/blogclan-2/images/b/b9/Random-image-15.jpg/revision/latest?cb=20160706220047" alt="Card image cap" style="">
+                <img class="card-img-top" src=<%=a.picture%> alt="Card image cap" style="">
                 <div class="card-body">
                     <h5 class="card-title"><%=a.title%></h5>
-                    <p class="card-text"><%=a.description%></p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div>           
+                        <%= image_tag match_stars(@ratings['activities'][x+n], "regular")%> based on <%=link_to "#{@reviews['activities'][x+n]} reviews", a.link %> 
+                    </div>
+                    <div class="float-right align-bottom" style="vertical-align: bottom">
+                        Powered by <%= image_tag "yelp_logo/Yelp_trademark_RGB_outline", :style => "width: 80px; margin: 0px" %>
+                    </div>
+
+
                 </div>
         </div>
     <% end %>

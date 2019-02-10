@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #FOR SEEDING COURSES WITH DATA FROM SWITCHUP
-short_bootcamp_providers = [
+bootcamp_providers = [
    "/bootcamps/thinkful",
    "/bootcamps/flatiron-school"]
 
-bootcamp_providers = ["/bootcamps/general-assembly",
+long_bootcamp_providers = ["/bootcamps/general-assembly",
  "/bootcamps/thinkful",
  "/bootcamps/flatiron-school",
  "/bootcamps/tech-talent-south",
@@ -338,17 +338,17 @@ class SwitchupScraper
 #FOR TESTING ONLY 
 #This seeding exists to test database relationships are working. Locations do not match up, and descriptions are pure filler.
   # Seed Dummy Users
-    user = {}
-    user['password'] = 'password'
+ #    user = {}
+ #    user['password'] = 'password'
 
-	ActiveRecord::Base.transaction do
-	  5.times do 
-	    user['first_name'] = Faker::Name.first_name 
-	    user['last_name'] = Faker::Name.last_name
-	    user['email'] = Faker::Internet.email
-	    User.create(user)
-	  end
-	end   
+	# ActiveRecord::Base.transaction do
+	#   5.times do 
+	#     user['first_name'] = Faker::Name.first_name 
+	#     user['last_name'] = Faker::Name.last_name
+	#     user['email'] = Faker::Internet.email
+	#     User.create(user)
+	#   end
+	# end   
 
   # Seed Dummy Trips
     trip = {}
@@ -363,43 +363,43 @@ class SwitchupScraper
     end
 
   # Seed Course/Trip realtionships
-  	courses_trip = {}
-  	default_trip_id = 1
-  	ActiveRecord::Base.transaction do
-		15.times do
-			courses_trip['course_id'] = rand(1..30)
-			courses_trip['trip_id'] = default_trip_id
-			CoursesTrip.create(courses_trip)
-			default_trip_id += 1
-		end  		
-  	end
+  # 	courses_trip = {}
+  # 	default_trip_id = 1
+  # 	ActiveRecord::Base.transaction do
+		# 15.times do
+		# 	courses_trip['course_id'] = rand(1..30)
+		# 	courses_trip['trip_id'] = default_trip_id
+		# 	CoursesTrip.create(courses_trip)
+		# 	default_trip_id += 1
+		# end  		
+  # 	end
 
 
   # Seed Actions
-    action = {}
-    ActiveRecord::Base.transaction do
-    	20.times do
-    		action['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
-    		action['type'] = ["Food", "Sightseeing", "Activity"].sample
-    		if action['type'] == "Food"
-    			action['title'] = Faker::Food.dish
-    			action['description'] = Faker::Food.description
-     		else	
-    			action['title'] = Faker::Hipster.sentence(3)
-    			action['description'] = Faker::Hipster.paragraph(2, false, 4)
-    		end
-    		Action.create(action)
-    	end
-    end
+  #   action = {}
+  #   ActiveRecord::Base.transaction do
+  #   	100.times do
+  #   		action['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
+  #   		action['type'] = ["Food", "Sightseeing", "Activity"].sample
+  #   		if action['type'] == "Food"
+  #   			action['title'] = Faker::Food.dish
+  #   			action['description'] = Faker::Food.description
+  #    		else	
+  #   			action['title'] = Faker::Hipster.sentence(3)
+  #   			action['description'] = Faker::Hipster.paragraph(2, false, 4)
+  #   		end
+  #   		Action.create(action)
+  #   	end
+  #   end
 
-  # Seed Action/Trip realtionships
-  	actions_trip = {}
-  	ActiveRecord::Base.transaction do
-		45.times do
-			actions_trip['action_id'] = rand(1..20)
-			actions_trip['trip_id'] = rand(1..15)
-			ActionsTrip.create(actions_trip)
-		end  		
-  	end
+  # # Seed Action/Trip realtionships
+  # 	actions_trip = {}
+  # 	ActiveRecord::Base.transaction do
+		# 45.times do
+		# 	actions_trip['action_id'] = rand(1..20)
+		# 	actions_trip['trip_id'] = rand(1..15)
+		# 	ActionsTrip.create(actions_trip)
+		# end  		
+  # 	end
 
 

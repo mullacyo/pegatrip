@@ -8,16 +8,20 @@
 
 
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
-    <% @sightseeings[x..y].each do |s| %>
+    <% @sightseeings[x..y].each_with_index do |s, n| %>
         <div class="card" style="width: 18rem; d-inline-block">
                     <button type="button" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                <img class="card-img-top" src="https://pp.userapi.com/c623628/v623628293/219a0/ALJRKn28BMo.jpg" alt="Card image cap">
+                <img class="card-img-top" src=<%=s.picture%> alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><%=s.title%></h5>
-                    <p class="card-text"><%=s.description%></p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div>           
+                        <%= image_tag match_stars(@ratings['sights'][x+n], "regular")%> based on <%=link_to "#{@reviews['sights'][x+n]} reviews", s.link %> 
+                    </div>
+                    <div class="float-right align-bottom" style="vertical-align: bottom">
+                        Powered by <%= image_tag "yelp_logo/Yelp_trademark_RGB_outline", :style => "width: 80px; margin: 0px" %>
+                    </div>
                 </div>
         </div>
     <% end %>

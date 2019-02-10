@@ -52,7 +52,7 @@
         <img class="d-block w-100" src="la.jpg" alt="first-content">
         <div class="carousel-caption">
             <h3><%= @courses[0].title%></h3>
-            <p><%= @courses[0].location %></p>
+            <p><%= @courses[0].locations %></p>
             <p><%= @courses[0].description %></p>
         </div>
     </div>
@@ -60,7 +60,7 @@
         <img class="d-block w-100" src="chicago.jpg" alt="second-content"">
         <div class="carousel-caption">
             <h3><%= @courses[1].title%></h3>
-            <p><%= @courses[1].location %></p>
+            <p><%= @courses[1].locations %></p>
             <p><%= @courses[1].description %></p>
         </div>
     </div>
@@ -68,7 +68,7 @@
         <img class="d-block w-100" src="ny.jpg" alt="third-content">
         <div class="carousel-caption">
             <h3><%= @courses[2].title%></h3>
-            <p><%= @courses[2].location %></p>
+            <p><%= @courses[2].locations %></p>
             <p><%= @courses[2].description %></p>
         </div>
     </div>
@@ -213,3 +213,10 @@ width: 286px;
 height: 180px;
 }
 </style>
+
+<script type="text/javascript">
+  $('.carousel').carousel({
+      interval: false,
+      data-interval: false
+  });   
+</script>>
