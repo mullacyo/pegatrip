@@ -4,8 +4,8 @@ class ActionsController < Clearance::UsersController
 	require "optparse"
 
 	def index
-@trip = Trip.find_by_id(params[:trip_id])
-citycodes = {
+	@trip = Trip.find_by_id(params[:trip_id])
+	citycodes = {
 	200 => "All of US",
 	212 => "Abilene - Sweetwater",
 	213 => "Albany - Schenectady - Troy",
@@ -314,7 +314,6 @@ citycodes = {
 	 	else
 	 		p 'no events in city'
 	 	end 
-
 	 else 
 	 	p 'City not in TM list'
 	 end 
@@ -350,7 +349,7 @@ citycodes = {
 		@actiontrip = ActionsTrip.new(action_id: params[:id], trip_id: params[:trip_id])
 
 		if @actiontrip.save
-			flash[:success] = "hiii!"
+			flash[:success] = "Activity added to trip"
 			redirect_to trip_path(params[:trip_id])
 		end
 
