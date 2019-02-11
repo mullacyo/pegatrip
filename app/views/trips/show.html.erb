@@ -2,7 +2,7 @@
 	<h1 class="text-center h2 mb-3 font-weight-light"> Your trip to: <%=@trip.location%></h1>
 
     <%if @trip.start_date != nil && @trip.end_date != nil%>
-	<p class="text-center mb-3 h6 font-italic font-weight-ligh" style="text-decoration: underline; color: #D7E5DE">Starts from: <strong> <%= @trip.start_date.strftime('%a, %d %b %Y')%> </strong> and ends on: <strong> <%= @trip.end_date.strftime('%a, %d %b %Y')%> </strong></p>
+	<p class="text-center mb-3 h6 font-italic font-weight-ligh" style="color: #D7E5DE">Starts from: <strong> <%= @trip.start_date.strftime('%a, %d %b %Y')%> </strong> and ends on: <strong> <%= @trip.end_date.strftime('%a, %d %b %Y')%> </strong></p>
 	<br/>
     <%end%>
 

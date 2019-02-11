@@ -33,7 +33,7 @@
       <a id="logo-image" href="<%=root_path%>"><img src="/Pegatrip_White_Logo_Classic.png" class="d-inline-block" style="height: 50px"></a>
 
       <div id="search-div" class="form-inline my-2 my-lg-0 d-inline-block">
-          <%= form_tag actions_path, id: "action-search", method: :get do %>
+          <%= form_tag actions_search_path, id: "action-search", method: :get do %>
 
             <%= text_field_tag "term", nil, id: "search", list: "list", placeholder: "Search", class: "form-control mr-sm-2" %>
 

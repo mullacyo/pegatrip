@@ -17,13 +17,20 @@ Rails.application.routes.draw do
   end
 
   resources :trips do
-    resources :actions,
-      only: [:create, :edit, :update, :destroy]
-    end
+    resources :actions
+    end 
+
 
   # resources :trips 
   resources :actions do
-  end 
+
+  end
+
+
+  get "/actions/search" => "actions#search", as: "actions_search"
+
+  # get "/trips/:id/actions" => "actions#index", as: "action_index" 
+
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

@@ -1,5 +1,3 @@
-  <%= form_for(@user) do |form| %>
-
 <div class = "container col-md-10 text-center">
   <div class="text-field">	
     <%= form.label :first_name, :style => "font-size: 18px"%>
@@ -30,8 +28,8 @@
  <br/>
 
   <div class= "avatar-field">
-  <%= form.label :avatars, :style => "font-size: 18px" %>
-  <%= form.file_field :avatars, multiple: true %>
+  <%= form.label :avatar, :style => "font-size: 18px" %>
+  <%= form.file_field :avatar%>
  
   </div>
  <br/>
@@ -40,8 +38,5 @@
         </div>
 
 </div>
-
-
-      <% end %>
 
 

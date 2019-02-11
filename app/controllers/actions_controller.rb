@@ -275,7 +275,7 @@ citycodes = {
 	901 => "All of Spain",
 	902 => "Barcelona",
 	903 => "Madrid"
-}
+	}
 
 	y = citycodes.key("London")
 # replace South Island with params later
@@ -294,11 +294,13 @@ citycodes = {
 		 		@action = Action.new
 
 		 		@action.title= x['name'] 
-		 		@action.pictures= x['images'][0]['url'] 
+		 		@action.picture= x['images'][0]['url'] 
 		 		@action.type= 'Activity' 
 		 		@action.description= x['_embedded']['venues'][0]['name']
 		 		@action.location= x['_embedded']['venues'][0]['city']['name']
 		 		@action.time= x['dates']['start']['dateTime']
+		 		@action.link= x['url']
+		 		@action.api_source = ["Ticketmaster"]
 
 				if x.has_key?("priceRanges")
 					@action.price = x['priceRanges'][0]['min']
@@ -313,12 +315,9 @@ citycodes = {
 	 		p 'no events in city'
 	 	end 
 	 	
-	@actions = Action.all
-		if params[:term]
-			@actions = @actions.search(params[:term]).records
-		end 
+	@trip = Trip.find_by_id(params[:trip_id])
+	@actions = Action.all.where(location: @trip.location)
 
-		
 
 	end
 
@@ -335,14 +334,28 @@ citycodes = {
 	end 
 
 	def add_to_trip
+		# @action = 
 
-
-
+		# @trip = 
 
 	end 
 
+	def search
+		if params[:term]
+			@actions = @actions.search(params[:term]).records
+		end  
+	end 
 
 
+	def create
+		
+		@actiontrip = ActionsTrip.new(action_id: params[:id], trip_id: params[:trip_id])
+
+		if @actiontrip.save
+			redirect_to root_path
+		end
+
+	end 
 
 end 
 

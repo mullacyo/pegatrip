@@ -1,32 +1,33 @@
-<div id= 'actionslist'>
-	
-	<% @actions.each do |x| %>
-			<%= x.title %>
-			</br>
-			<%= x.type %>
-			</br>	
-			<%= x.description %>
-			</br>
-			<%= x.location %>
-			</br>
-			<%= x.time %>
-			</br>
-			<%= x.price %>
-			</br>	
-		<% if x.pictures != nil %>
-		<%= image_tag x.pictures %>
-		</br>
-		<% end %>
 
-		<div>
-			<%= button_to 'Add to trip'
-			%>
+
+	<% @actions.each do |x| %>
+		<div class="card actions">
+			<div class="card-body">
+				<h5 class="card-title"><%=x.title%></h5>
+				</br>
+				<p class="card-text">
+					<%= x.type %>
+				</p>
+				</br>	
+					<%= x.description %>
+				</br>
+					<%= x.location %>
+				</br>
+					<%= x.time %>
+				</br>
+					<%= x.price %>
+				</br>	
+					<% if x.picture != nil %>
+					<%= image_tag x.picture %>
+					</br>
+					<% end %>
+	<%= link_to 'Add action to trip', trip_action_path(params[:trip_id], x), method: :create %>
+			</div>
 		</div>
+
 
 	<% end %>
 
-
-</div>	
 	
 
 
