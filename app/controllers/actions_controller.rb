@@ -4,7 +4,8 @@ class ActionsController < Clearance::UsersController
 	require "optparse"
 
 	def index
-citycodes = {
+	@trip = Trip.find_by_id(params[:trip_id])
+	citycodes = {
 	200 => "All of US",
 	212 => "Abilene - Sweetwater",
 	213 => "Albany - Schenectady - Troy",
@@ -275,18 +276,15 @@ citycodes = {
 	901 => "All of Spain",
 	902 => "Barcelona",
 	903 => "Madrid"
-}
+	}
 
-	y = citycodes.key("London")
-# replace South Island with params later
+	if citycodes.has_key?("#{@trip.location}")
+		y = citycodes.key("#{@trip.location}")
 
-	# @actions = Action.all
-	# 	if params[:term]
-	# 		@actions = @actions.search(params[:term]).records
-		# put city here? .where(location: )
 		link = "https://app.ticketmaster.com/discovery/v2/events.json?DmaId=#{y}&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu"
-
+	
 		rawresponse = HTTP.get(link)
+
 		if rawresponse.parse.has_key?("_embedded")
 		 	@response1 = rawresponse.parse["_embedded"]["events"]
 			# p @response1		 	
@@ -296,15 +294,17 @@ citycodes = {
 		 		@action = Action.new
 
 		 		@action.title= x['name'] 
-		 		@action.pictures= x['images'][0]['url'] 
+		 		@action.picture= x['images'][0]['url'] 
 		 		@action.type= 'Activity' 
 		 		@action.description= x['_embedded']['venues'][0]['name']
 		 		@action.location= x['_embedded']['venues'][0]['city']['name']
 		 		@action.time= x['dates']['start']['dateTime']
+		 		@action.link= x['url']
+		 		@action.api_source = ["Ticketmaster"]
 
-				if x.has_key?("priceRanges")
-					@action.price = x['priceRanges'][0]['min']
-				end 
+					if x.has_key?("priceRanges")
+						@action.price = x['priceRanges'][0]['min']
+					end 
 
 				if Action.find_by(title: x['name'] == nil)
 				@action.save
@@ -314,10 +314,20 @@ citycodes = {
 	 	else
 	 		p 'no events in city'
 	 	end 
-	 	
+	 else 
+	 	p 'City not in TM list'
+	 end 
+
+	@actions = Action.all.where(location: @trip.location)
+
+		if params[:actiontype].present?
+			@actions = @actions.where(type: params[:actiontype])
+		end
+
 	end
 
 	def destroy
+
 		@actionstrip = ActionsTrip.where(action_id: params[:id]).find_by(trip_id: params[:trip_id])
 		if @actionstrip.destroy
 			redirect_to trip_path(params[:trip_id])
@@ -326,12 +336,24 @@ citycodes = {
 			flash[:danger] = "Your action was not deleted, please go back"
 		end
 
+	end 
 
+	def search
+		if params[:term]
+			@actions = @actions.search(params[:term]).records
+		end  
 	end 
 
 
+	def show
+		@actiontrip = ActionsTrip.new(action_id: params[:id], trip_id: params[:trip_id])
 
+		if @actiontrip.save
+			flash[:success] = "Activity added to trip"
+			redirect_to trip_path(params[:trip_id])
+		end
 
+	end 
 
 end 
 

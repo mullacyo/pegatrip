@@ -59,10 +59,9 @@ end
 	private 
 
 	def user_from_params 
-
-		params.require(:user).permit(:first_name, :last_name, :email, :password, :image)
-#need to add image here? yes
+		params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar)
 	end 
+
 
 	def signed_in_user
 		unless signed_in? 

@@ -42,7 +42,9 @@
 			      <%= link_to "Add to my Google Calendar", redirect_path(trip.id)%>
 			    </div>
 			    <div class="body">
-			      <img src="/sightseeing.jpg" style="width: 50%; margin-left: 20px; border-radius: 100% ">
+			    	<%if trip.actions.where(type: "Sightseeing").present? %>
+			    		<%= image_tag(trip.actions.where(type: "Sightseeing").first.picture, :style => "width: 50%; margin-left: 20px; border-radius: 100%") %>
+			    	<%end%>
 			    </div>
 			  </div> <br/> <hr> <br/> 
         <%end%>
