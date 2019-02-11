@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update, :destroy]
     end
 
-  resources :trips 
+  # resources :trips 
   resources :actions do
   end 
 

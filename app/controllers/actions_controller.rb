@@ -320,9 +320,9 @@ citycodes = {
 	def destroy
 		@actionstrip = ActionsTrip.where(action_id: params[:id]).find_by(trip_id: params[:trip_id])
 		if @actionstrip.destroy
-			redirect_to root_path
+			redirect_to trip_path(params[:trip_id])
 		else 
-			redirect_to root_path
+			redirect_to trip_path(params[:trip_id])
 			flash[:danger] = "Your action was not deleted, please go back"
 		end
 

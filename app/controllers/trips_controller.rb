@@ -361,6 +361,52 @@ class TripsController < ApplicationController
         @sightseeings = @trip.actions.where(type: "Sightseeing")
         @foods = @trip.actions.where(type: "Food")
         @course = @trip.courses.first
+
+
+        @activities_requests = []
+        @sights_requests = []
+        @foods_requests = []
+
+        @ratings = {
+            "activities" => [],
+            "sights" => [],
+            "foods" => [],
+        }
+
+        @reviews = {
+            "activities" => [],
+            "sights" => [],
+            "foods" => [],
+        }
+
+
+        @activities.each do |a|
+            @activities_requests << HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get("https://api.yelp.com/v3/businesses/#{a.api_reference}").parse
+        end
+
+        @sightseeings.each do |a|
+            @sights_requests << HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get("https://api.yelp.com/v3/businesses/#{a.api_reference}").parse
+        end
+
+
+        @foods.each do |a|
+            @foods_requests << HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get("https://api.yelp.com/v3/businesses/#{a.api_reference}").parse
+        end
+
+        @activities_requests.each do |jsn|
+            @ratings['activities'] << jsn['rating']
+            @reviews['activities'] << jsn['review_count']
+        end
+
+        @foods_requests.each do |jsn|
+            @ratings['foods'] << jsn['rating']
+            @reviews['foods'] << jsn['review_count']
+        end
+
+        @sights_requests.each do |jsn|
+            @ratings['sights'] << jsn['rating']
+            @reviews['sights'] << jsn['review_count']
+        end
     end
 
     def edit
@@ -372,9 +418,9 @@ class TripsController < ApplicationController
     def destroy
         @actionstrip = ActionsTrip.where(action_id: params[:id]).find_by(trip_id: params[:trip_id])
         if @actionstrip.destroy
-            redirect_to root_path
+            redirect_to trip_path(params[:trip_id])
         else 
-            redirect_to root_path
+            redirect_to trip_path(params[:trip_id])
             flash[:danger] = "Your action was not deleted, please go back"
         end
     end
