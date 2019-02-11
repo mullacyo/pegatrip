@@ -280,10 +280,8 @@ citycodes = {
 	y = citycodes.key("London")
 # replace South Island with params later
 
-	# @actions = Action.all
-	# 	if params[:term]
-	# 		@actions = @actions.search(params[:term]).records
-		# put city here? .where(location: )
+
+
 		link = "https://app.ticketmaster.com/discovery/v2/events.json?DmaId=#{y}&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu"
 
 		rawresponse = HTTP.get(link)
@@ -315,9 +313,17 @@ citycodes = {
 	 		p 'no events in city'
 	 	end 
 	 	
+	@actions = Action.all
+		if params[:term]
+			@actions = @actions.search(params[:term]).records
+		end 
+
+		
+
 	end
 
 	def destroy
+
 		@actionstrip = ActionsTrip.where(action_id: params[:id]).find_by(trip_id: params[:trip_id])
 		if @actionstrip.destroy
 			redirect_to trip_path(params[:trip_id])
@@ -326,9 +332,14 @@ citycodes = {
 			flash[:danger] = "Your action was not deleted, please go back"
 		end
 
-
 	end 
 
+	def add_to_trip
+
+
+
+
+	end 
 
 
 

@@ -1,5 +1,6 @@
 	<h2 class="text-center">Edit Profile </h2>
 	<br/>
+
 	<br/>
 	 <div class="container d-flex justify-content-between">
    		<div class="d-inline-block" style="width: 60%" >
@@ -10,11 +11,15 @@
 
   	 	</div>
 	
+
 		<div class="container d-inline-block mx-auto text-center" style="width: 30%; padding-top: 40px">
 			<% if @user.avatar.url == nil%>
 				<%= image_tag "/default_profile.png", :class => "profile-pic-edit"%>
 			<% else %>
 			 	<%= image_tag @user.avatar.url, :class => "profile-pic-edit"%> 
+
+			
+
 			<% end %>
 		</div>
 

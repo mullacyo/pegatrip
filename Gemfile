@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'will_paginate', '~> 3.1.0'
+
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
 gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
 

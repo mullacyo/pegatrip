@@ -1,29 +1,35 @@
 <div id= 'actionslist'>
+	
+	<% @actions.each do |x| %>
+			<%= x.title %>
+			</br>
+			<%= x.type %>
+			</br>	
+			<%= x.description %>
+			</br>
+			<%= x.location %>
+			</br>
+			<%= x.time %>
+			</br>
+			<%= x.price %>
+			</br>	
+		<% if x.pictures != nil %>
+		<%= image_tag x.pictures %>
+		</br>
+		<% end %>
 
-<% @array_of_events.each do |x| %>
-	
-	<%= x.title %>
-</br>
-	<%= x.type %>
-</br>	
-	<%= x.description %>
-</br>
-	<%= x.location %>
-</br>
-	<%= x.time %>
-</br>
-	<%= x.price %>
-</br>	
-	<%= image_tag x.pictures %>
-</br>
-	
-	
+		<div>
+			<%= button_to 'Add to trip'
+			%>
+		</div>
 
-<% end %>
+	<% end %>
 
 
 </div>	
 	
+
+
 
 
 

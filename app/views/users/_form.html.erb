@@ -1,5 +1,5 @@
+  <%= form_for(@user) do |form| %>
 
-<%= form_for @user do |form| %>
 <div class = "container col-md-10 text-center">
   <div class="text-field">	
     <%= form.label :first_name, :style => "font-size: 18px"%>
@@ -30,17 +30,18 @@
  <br/>
 
   <div class= "avatar-field">
-  <%= form.label :avatar, :style => "font-size: 18px" %>
-  <%= form.file_field :avatar %>
+  <%= form.label :avatars, :style => "font-size: 18px" %>
+  <%= form.file_field :avatars, multiple: true %>
+ 
   </div>
  <br/>
- 
-  <div >
-        <%= form.submit :class => "btn btn-outline", :style => "border-color: #3ac9c6; color: #3ac9c6" %>
-  </div>
+      <div>
+      <%= form.submit :class => "btn btn-outline", :style => "border-color: #3ac9c6; color: #3ac9c6" %>
+        </div>
+
 </div>
 
-<%end%>
 
+      <% end %>
 
 
