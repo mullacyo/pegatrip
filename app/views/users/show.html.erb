@@ -35,7 +35,9 @@
     	<% @trips.each do |trip| %>
 			  <div class="entry">
 			    <div class="title">
+			    <%if trip.start_date != nil && trip.end_date != nil%>
 			      <h3>Start date: <%=trip.start_date.strftime('%a, %d %b %Y')%> <br/>End date: <%=trip.end_date.strftime('%a, %d %b %Y')%></h3>
+			      <%end%>
 			      <%= link_to trip.location, trip_path(trip.id)%><br/>
 			      <%= link_to "Add to my Google Calendar", redirect_path(trip.id)%>
 			    </div>

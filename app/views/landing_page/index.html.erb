@@ -26,7 +26,7 @@
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				      	<form action="/trips">
+				      	<form action="/trips" id="generation-form">
 						  <div class="form-group">
 						    <label>Course</label>
 						    <div type="input" class="form-control text-left" style="color: black">Bootcamp Coding</div>
@@ -114,9 +114,39 @@
  </footer>
 
 <script>
-	var elemet = document.getElementsByClassName("form-control");
-	elemet.removeAttr('requried');
+	function formatDate(date) {
+	    var d = new Date(date),
+	        month = '' + (d.getMonth() + 1),
+	        day = '' + d.getDate(),
+	        year = d.getFullYear();
+
+	    if (month.length < 2) month = '0' + month;
+	    if (day.length < 2) day = '0' + day;
+
+	    return [year, month, day].join('-');
+	}
+
+	var today = formatDate(Date())
+
+	var startDate = new Date();
+    var endDate = new Date();
+    var end = formatDate(endDate.setDate(startDate.getDate()+ Math.floor(Math.random() * 120)) + 30);
+
+
+
+	$("#generation-form").submit(function(event){
+		if($("#generation-form .form-group .form-control").eq(2).val() == "") {
+			$("#generation-form .form-group .form-control").eq(2).val(today);
+		} else {}
+
+		if($("#generation-form .form-group .form-control").eq(3).val() == "") {
+			$("#generation-form .form-group .form-control").eq(3).val(end);
+		} else {}
+
+	});
+
 </script>
+
 <style>
 
 .navbar { 
