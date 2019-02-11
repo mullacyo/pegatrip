@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   get '/redirect/:trip_id', to: 'calendar#redirect', as: 'redirect'
   get '/callback/', to: 'calendar#callback', as: 'callback'
+
+  post '/trips/:trip_id/actions/:id' => "actions#create", as: 'trip_action_create'
   
 end
 

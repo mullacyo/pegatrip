@@ -4,6 +4,7 @@ class ActionsController < Clearance::UsersController
 	require "optparse"
 
 	def index
+@trip = Trip.find_by_id(params[:trip_id])
 citycodes = {
 	200 => "All of US",
 	212 => "Abilene - Sweetwater",
@@ -277,14 +278,13 @@ citycodes = {
 	903 => "Madrid"
 	}
 
-	y = citycodes.key("London")
-# replace South Island with params later
-
-
+	if citycodes.has_key?("#{@trip.location}")
+		y = citycodes.key("#{@trip.location}")
 
 		link = "https://app.ticketmaster.com/discovery/v2/events.json?DmaId=#{y}&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu"
-
+	
 		rawresponse = HTTP.get(link)
+
 		if rawresponse.parse.has_key?("_embedded")
 		 	@response1 = rawresponse.parse["_embedded"]["events"]
 			# p @response1		 	
@@ -302,9 +302,9 @@ citycodes = {
 		 		@action.link= x['url']
 		 		@action.api_source = ["Ticketmaster"]
 
-				if x.has_key?("priceRanges")
-					@action.price = x['priceRanges'][0]['min']
-				end 
+					if x.has_key?("priceRanges")
+						@action.price = x['priceRanges'][0]['min']
+					end 
 
 				if Action.find_by(title: x['name'] == nil)
 				@action.save
@@ -314,10 +314,16 @@ citycodes = {
 	 	else
 	 		p 'no events in city'
 	 	end 
-	 	
-	@trip = Trip.find_by_id(params[:trip_id])
+
+	 else 
+	 	p 'City not in TM list'
+	 end 
+
 	@actions = Action.all.where(location: @trip.location)
 
+		if params[:actiontype].present?
+			@actions = @actions.where(type: params[:actiontype])
+		end
 
 	end
 
@@ -333,13 +339,6 @@ citycodes = {
 
 	end 
 
-	def add_to_trip
-		# @action = 
-
-		# @trip = 
-
-	end 
-
 	def search
 		if params[:term]
 			@actions = @actions.search(params[:term]).records
@@ -347,12 +346,12 @@ citycodes = {
 	end 
 
 
-	def create
-		
+	def show
 		@actiontrip = ActionsTrip.new(action_id: params[:id], trip_id: params[:trip_id])
 
 		if @actiontrip.save
-			redirect_to root_path
+			flash[:success] = "hiii!"
+			redirect_to trip_path(params[:trip_id])
 		end
 
 	end 

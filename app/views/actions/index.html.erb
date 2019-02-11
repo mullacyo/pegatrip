@@ -17,11 +17,13 @@
 				</br>
 					<%= x.price %>
 				</br>	
+				 	<%= x.id %>
+				</br>	
 					<% if x.picture != nil %>
 					<%= image_tag x.picture %>
 					</br>
 					<% end %>
-	<%= link_to 'Add action to trip', trip_action_path(params[:trip_id], x), method: :create %>
+	<%= link_to 'Add action to trip', trip_action_create_path(params[:trip_id], x.id, method: :patch) %>
 			</div>
 		</div>
 
@@ -29,9 +31,6 @@
 	<% end %>
 
 	
-
-
-
 
 
 
