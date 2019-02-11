@@ -4,7 +4,6 @@ class TripsController < ApplicationController
 
     #Before page loads, run a Yelp seach to populate the database
         url = "https://api.yelp.com/v3/businesses/search"
-
         @all_locations = ["NYC", "San Francisco", "Austin",
              "Boston",
              "Atlanta",
