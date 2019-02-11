@@ -270,9 +270,9 @@ class TripsController < ApplicationController
                 @activities_requests[3]['rating'],
                 @activities_requests[4]['rating'],
                 @activities_requests[5]['rating'],
-                @activities_requests[6]['rating'],
-                @activities_requests[7]['rating'],
-                @activities_requests[8]['rating']],
+                @activities_requests[-3]['rating'],
+                @activities_requests[-2]['rating'],
+                @activities_requests[-1]['rating']],
             "sights" => [
                 @sights_requests[0]['rating'],
                 @sights_requests[1]['rating'],
@@ -280,9 +280,9 @@ class TripsController < ApplicationController
                 @sights_requests[3]['rating'],
                 @sights_requests[4]['rating'],
                 @sights_requests[5]['rating'],
-                @sights_requests[6]['rating'],
-                @sights_requests[7]['rating'],
-                @sights_requests[8]['rating']],
+                @sights_requests[-3]['rating'],
+                @sights_requests[-2]['rating'],
+                @sights_requests[-1]['rating']],
             "foods" => [
                 @foods_requests[0]['rating'],
                 @foods_requests[1]['rating'],
@@ -290,9 +290,9 @@ class TripsController < ApplicationController
                 @foods_requests[3]['rating'],
                 @foods_requests[4]['rating'],
                 @foods_requests[5]['rating'],
-                @foods_requests[6]['rating'],
-                @foods_requests[7]['rating'],
-                @foods_requests[8]['rating']],
+                @foods_requests[-3]['rating'],
+                @foods_requests[-2]['rating'],
+                @foods_requests[-1]['rating']],
         }
 
         @reviews = {
@@ -303,9 +303,9 @@ class TripsController < ApplicationController
                 @activities_requests[3]['review_count'],
                 @activities_requests[4]['review_count'],
                 @activities_requests[5]['review_count'],
-                @activities_requests[6]['review_count'],
-                @activities_requests[7]['review_count'],
-                @activities_requests[8]['rreview_count']],
+                @activities_requests[-3]['review_count'],
+                @activities_requests[-2]['review_count'],
+                @activities_requests[-1]['rreview_count']],
             "sights" => [
                 @sights_requests[0]['review_count'],
                 @sights_requests[1]['review_count'],
@@ -313,9 +313,9 @@ class TripsController < ApplicationController
                 @sights_requests[3]['review_count'],
                 @sights_requests[4]['review_count'],
                 @sights_requests[5]['review_count'],
-                @sights_requests[6]['review_count'],
-                @sights_requests[7]['review_count'],
-                @sights_requests[8]['review_count']],
+                @sights_requests[-3]['review_count'],
+                @sights_requests[-2]['review_count'],
+                @sights_requests[-1]['review_count']],
             "foods" => [
                 @foods_requests[0]['review_count'],
                 @foods_requests[1]['review_count'],
@@ -323,9 +323,9 @@ class TripsController < ApplicationController
                 @foods_requests[3]['review_count'],
                 @foods_requests[4]['review_count'],
                 @foods_requests[5]['review_count'],
-                @foods_requests[6]['review_count'],
-                @foods_requests[7]['review_count'],
-                @foods_requests[8]['review_count']],
+                @foods_requests[-3]['review_count'],
+                @foods_requests[-2]['review_count'],
+                @foods_requests[-1]['review_count']],
         }
       
     end #end of index

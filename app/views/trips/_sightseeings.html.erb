@@ -10,7 +10,7 @@
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
     <% @sightseeings[x..y].each_with_index do |s, n| %>
         <div class="card" style="width: 18rem; d-inline-block">
-                    <button type="button" class="close" aria-label="Close">
+                    <button type="button" class="close d-none" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 <img class="card-img-top" src=<%=s.picture%> alt="Card image cap">

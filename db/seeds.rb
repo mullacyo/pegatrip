@@ -372,23 +372,6 @@ class SwitchupScraper
   # 	end
 
 
-  # Seed Actions
-  #   action = {}
-  #   ActiveRecord::Base.transaction do
-  #   	100.times do
-  #   		action['location'] = ["New York", "Kuala Lumpur", "Singapore", "London", "Brisbane", "Tokyo"].sample
-  #   		action['type'] = ["Food", "Sightseeing", "Activity"].sample
-  #   		if action['type'] == "Food"
-  #   			action['title'] = Faker::Food.dish
-  #   			action['description'] = Faker::Food.description
-  #    		else	
-  #   			action['title'] = Faker::Hipster.sentence(3)
-  #   			action['description'] = Faker::Hipster.paragraph(2, false, 4)
-  #   		end
-  #   		Action.create(action)
-  #   	end
-  #   end
-
   # # Seed Action/Trip realtionships
   # 	actions_trip = {}
   # 	ActiveRecord::Base.transaction do
