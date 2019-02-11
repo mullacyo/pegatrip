@@ -11,7 +11,7 @@
 
     
     <div class="carousel-item active">
-        <%= image_tag(@sightseeings.first.picture, :class => "d-block w-100 carousel-image", :alt => "first-content") %>
+        <%= image_tag(@sightseeings.first.picture, :class => "d-block w-100", :alt => "first-content") %>
         <div class="carousel-caption">
             <h3><%= @courses[0].title%></h3>
             <p><%= @courses[0].course_provider %></p>
@@ -226,7 +226,7 @@ body {
     width: 100%;
 }
 
-.carousel-image img {
+.carousel-item img {
     filter: brightness(50%);
 }
 
