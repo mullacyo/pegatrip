@@ -2,7 +2,6 @@ class LandingPageController < ApplicationController
 	def index
 		@trips = Trip.all.sample(4)
 
-
 		#list of all locations where courses happen
 		@all_locations = ["NYC",
              "San Francisco",
