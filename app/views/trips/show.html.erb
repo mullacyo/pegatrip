@@ -29,9 +29,13 @@
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
     <% @activities.each_with_index do |a, ind| %>
         <div class="card actions">
-                <img class="card-img-top" src="<%=a.picture%>" alt="Card image cap" style="">
+                <%if FastImage.size(a.picture) == nil %>
+                    <%= image_tag('/alt.png', :class => "card-img-top", :alt => "Card image cap") %>
+                <%else%>
+                    <%= image_tag(a.picture, :class => "card-img-top", :alt => "Card image cap") %>
+                <%end%>
                 <div class="card-body">
-                    <h5 class="card-title"><%=a.title%></h5>
+                    <h5 class="card-title"><%=link_to "#{a.title}", a.link%></h5>
                     <p class="card-text"><%=a.description%></p>
                      <div>           
                         <%= image_tag match_stars(@ratings['activities'][ind], "regular")%> based on <%=link_to "#{@reviews['activities'][ind]} reviews from Yelp", a.link %> 
@@ -58,9 +62,13 @@
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
     <% @foods.each_with_index do |f, ind| %>
         <div class="card actions">
-                <img class="card-img-top" src="<%=f.picture%>" alt="Card image cap" style="">
+                <%if FastImage.size(f.picture) == nil %>
+                    <%= image_tag('/alt.png', :class => "card-img-top", :alt => "Card image cap") %>
+                <%else%>
+                    <%= image_tag(f.picture, :class => "card-img-top", :alt => "Card image cap") %>
+                <%end%>
                 <div class="card-body">
-                    <h5 class="card-title"><%=f.title%></h5>
+                    <h5 class="card-title"><%=link_to "#{f.title}", f.link %></h5>
                     <p class="card-text"><%=f.description%></p>
                      <div>           
                         <%= image_tag match_stars(@ratings['foods'][ind], "regular")%> based on <%=link_to "#{@reviews['foods'][ind]} reviews from Yelp", f.link %> 
@@ -86,9 +94,13 @@
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
     <% @sightseeings.each_with_index do |s, ind| %>
         <div class="card actions">
-                <img class="card-img-top" src="<%=s.picture%>" alt="Card image cap" style="">
+                <%if FastImage.size(s.picture) == nil %>
+                    <%= image_tag('/alt.png', :class => "card-img-top", :alt => "Card image cap") %>
+                <%else%>
+                    <%= image_tag(s.picture, :class => "card-img-top", :alt => "Card image cap") %>
+                <%end%>
                 <div class="card-body">
-                    <h5 class="card-title"><%=s.title%></h5>
+                    <h5 class="card-title"><%=link_to "#{s.title}", s.link%></h5>
                     <p class="card-text"><%=s.description%></p>
                     <div>           
                         <%= image_tag match_stars(@ratings['sights'][ind], "regular")%> based on <%=link_to "#{@reviews['sights'][ind]} reviews from Yelp", s.link %> 
@@ -108,6 +120,12 @@
 <style>
 .navbar {
 	position: absolute;
+}
+
+.card-img-top {
+object-fit: cover; 
+width: 286px; 
+height: 180px;
 }
 </style>
 
