@@ -318,15 +318,12 @@ class ActionsController < Clearance::UsersController
 	 	p 'City not in TM list'
 	 end 
 
-	@actions = Action.all.where(location: @trip.location)
 
-		if params[:actiontype].present?
-			@actions = @actions.where(type: params[:actiontype])
-		end
-
+	# @actions = Action.all.where(location: @trip.location)
+	@actions = Action.where(location: @trip.location, time: @trip.start_date..@trip.end_date ).or(Action.where(location: @trip.location, time: nil))
 
         @actions_requests = []
-        @actios_ratings = []
+        @actions_ratings = []
         @actions_reviews = []
 
 
@@ -335,9 +332,20 @@ class ActionsController < Clearance::UsersController
         end
 
         @actions_requests.each do |jsn|
-            @actios_ratings << jsn['rating']
+            @actions_ratings << jsn['rating']
             @actions_reviews << jsn['review_count']
         end
+
+
+		if params[:actiontype].present?
+			@actions = @actions.where(type: params[:actiontype])
+
+			if params[:term].present?
+				@actions = @actions.where("title ILIKE ?", "%#{params[:term]}%" ) 
+			end
+
+		end
+
 	end
 
 	def destroy
@@ -351,22 +359,6 @@ class ActionsController < Clearance::UsersController
 		end
 
 	end 
-
-	def search
-		if params[:term].present? 
-	 		@actions = @actions.where(type: params[:actiontype])
-	  
-		  	#Change to make a response flexible from a query method
-		  	response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=coffee&location=nyc')
-		  	@actions = response.parse['businesses']
-		 end
-	end
-
-	# def search
-	# 	if params[:term]
-	# 		@actions = @actions.search(params[:term]).records
-	# 	end  
-	# end 
 
 
 	def show

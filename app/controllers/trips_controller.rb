@@ -127,7 +127,7 @@ class TripsController < ApplicationController
 
             #Populate Sightseeing
             sight_search_parameters = {
-            term: ["sightseeing", "museum","history"].sample,
+            term: ["sightseeing", "museum"].sample,
             location: params[:location],
             }
 
