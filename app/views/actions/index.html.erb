@@ -2,7 +2,6 @@
 <form class="form-inline justify-content-center text-light">
 	     <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="Coffee" aria-label="Search" name="term" required value="<%=params[:term]%>"> 
 	     <button class="btn my-2 my-sm-0 d-inline-block" style="color: white; background-color: #3ac9c6" type="submit">Search</button>
-	     
    	</form>
   </div>
 </div>
@@ -30,10 +29,8 @@
 				</br>
 					<%= x.time %>
 					</br>	
-				<div>          
-				<% if x.api_source == "Yelp" %>
+				<div>           
                     <%= image_tag match_stars(@actios_ratings[ind], "regular")%> based on <%=link_to "#{@actions_reviews[ind]} reviews from Yelp", x.link %>
-                <%end %>
                 </div></br>
 				
 				<%= link_to 'Add to a trip', trip_action_create_path(params[:trip_id], x.id, method: :patch), class: "btn btn-outline", style: "color: #3ac9c6; border-color: #3ac9c6"%>
