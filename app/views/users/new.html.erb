@@ -2,7 +2,9 @@
 <div class="sign-up">
   <h2>Sign-up</h2>
   <div class= "sign-up-table">
-    <%= render partial: '/users/form'%>
+  	<%= form_for @user do |form| %>
+	  	<%= render partial: '/users/form', object: form %>
+  	<% end %>
   </div>
 </div>
 

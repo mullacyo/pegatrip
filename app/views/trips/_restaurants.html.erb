@@ -1,6 +1,6 @@
 <div class="content-title">
-    <h3 class="d-inline">Restaurants</h3> 
-    <button type="button" class="btn btn-default btn-sm">
+    <h3 class="d-inline" style="size: 1.5rem">Restaurants</h3> 
+    <button type="button" class="btn btn-default btn-sm d-none">
             <i class="fas fa-edit"></i>
     </button>
 </div>
@@ -8,7 +8,11 @@
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
     <% @restaurants[x..y].each_with_index do |r, n| %>
         <div class="card" style="width: 18rem; d-inline-block">
-                <img class="card-img-top" src=<%= "#{r.picture}"%> alt="Card image cap">
+                <%if FastImage.size(r.picture) == nil %>
+                    <%= image_tag('/alt.png', :class => "card-img-top", :alt => "Card image cap") %>
+                <%else%>
+                    <%= image_tag(r.picture, :class => "card-img-top", :alt => "Card image cap") %>
+                <%end%>
                 <div class="card-body">
                     <h5 class="card-title"><%=r.title%></h5>
                     <div>           

@@ -11,24 +11,35 @@
 
     
     <div class="carousel-item active">
-        <%= image_tag(@sightseeings.first.picture, :class => "d-block w-100", :alt => "first-content") %>
+        <%if FastImage.size(@sightseeings.first.picture) == nil %>
+            <%= image_tag('/alt.png', :class => "d-block w-100", :alt => "first-content") %>
+        <%else%>
+            <%= image_tag(@sightseeings.first.picture, :class => "d-block w-100", :alt => "first-content") %>
+        <%end%>
         <div class="carousel-caption">
-            <h3><%= @courses[0].title%></h3>
+            <p><%= params[:start_date]%> to <%=params[:end_date] %> in <%=params[:location]%></p>
+            <h3 style="size: 1.25rem"><%= @courses[0].title%></h3>
             <p><%= @courses[0].course_provider %></p>
             <div class="textarea trip-content" ><%= raw @courses[0].description.gsub("\\n", "").gsub("\\", "")%></div>
             <p class="courseid d-none"><%=@courses[0].id%></p>
         </div>
     </div>
     <div class="carousel-item">
-        <%= image_tag(@sightseeings.second.picture, :class => "d-block w-100", :alt => "second-content") %>
+        <%if FastImage.size(@sightseeings.second.picture) == nil %>
+            <%= image_tag('/alt.png', :class => "d-block w-100", :alt => "first-content") %>
+        <%else%>
+            <%= image_tag(@sightseeings.second.picture, :class => "d-block w-100", :alt => "second-content") %>
+        <%end%>
         <div class="carousel-caption">
             <% if @courses.length == 1%>
-                <h3><%= @courses[0].title%></h3>
+                <p><%= params[:start_date]%> to <%=params[:end_date] %> in <%=params[:location]%></p>
+                <h3 style="size: 1.25rem"><%= @courses[0].title%></h3>
                 <p><%= @courses[0].course_provider  %></p>
                 <div class="textarea trip-content" ><%= raw @courses[0].description.gsub("\\n", "").gsub("\\", "")%></div>
                 <p class="courseid d-none"><%=@courses[0].id%></p>
             <% else %>
-                <h3><%= @courses[1].title%></h3>
+                <p><%= params[:start_date]%> to <%=params[:end_date] %> in <%=params[:location]%></p>
+                <h3 style="size: 1.25rem"><%= @courses[1].title%></h3>
                 <p><%= @courses[1].course_provider  %></p>
                 <div class="textarea trip-content" ><%= raw @courses[1].description.gsub("\\n", "").gsub("\\", "")%></div>
                 <p class="courseid d-none"><%=@courses[1].id%></p>
@@ -36,9 +47,14 @@
         </div>
     </div>
     <div class="carousel-item">
-        <%= image_tag(@sightseeings.last.picture, :class => "d-block w-100", :alt => "third-content") %>
+        <%if FastImage.size(@sightseeings.third.picture) == nil %>
+            <%= image_tag('/alt.png', :class => "d-block w-100", :alt => "first-content") %>
+        <%else%>
+            <%= image_tag(@sightseeings.third.picture, :class => "d-block w-100", :alt => "third-content") %>
+        <%end%>
         <div class="carousel-caption">
-            <h3><%= @courses[-1].title%></h3>
+            <p><%= params[:start_date]%> to <%=params[:end_date] %> in <%=params[:location]%></p>
+            <h3 style="size: 1.25rem"><%= @courses[-1].title%></h3>
             <p><%= @courses[-1].course_provider %></p>
             <div class="textarea trip-content" ><%= raw @courses[-1].description.gsub("\\n", "").gsub("\\", "")%></div>
             <p class="courseid d-none"><%=@courses[-1].id%></p>
@@ -82,7 +98,7 @@
     <%= f.hidden_field :action_id7, value: "test", :class => "hidden-action-id"%>
     <%= f.hidden_field :action_id8, value: "test", :class => "hidden-action-id"%>
    
-    <div id="submit-wrapper" style="text-align: center; margin-bottom: 5vh">
+    <div id="submit-wrapper" style="text-align: center; margin-bottom: 10vh">
         <%if signed_in? %>
                 <%= f.submit "Save this trip", class: "btn btn-success", style: "width: 75vw" %>
         <% else %>
@@ -230,6 +246,14 @@ body {
     filter: brightness(50%);
 }
 
+h3 {
+    font-size: 1.5rem !important;
+}
+
+#content{
+    padding-top: 40px;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -247,6 +271,9 @@ body {
 
     $("#important-course-id").val($(".carousel-item.active .courseid").text())    
 
+    $('img').error(function() {
+    $(this).attr('src', 'https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/RfeyEzE/random-lines-purple-geometric-shapes-background_ryp-ysybl_thumbnail-full01.png');
+    });
     // do the extra stuff here
       // $.ajax({
       //  type: "POST",

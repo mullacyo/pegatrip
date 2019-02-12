@@ -1,6 +1,6 @@
 <div class="content-title">
-    <h3 class="d-inline">Sightseeings</h3> 
-    <button type="button" class="btn btn-default btn-sm">
+    <h3 class="d-inline" style="size: 1.5rem">Sightseeings</h3> 
+    <button type="button" class="btn btn-default btn-sm d-none">
             <i class="fas fa-edit"></i>
     </button>
 </div>
@@ -13,7 +13,11 @@
                     <button type="button" class="close d-none" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                <img class="card-img-top" src=<%=s.picture%> alt="Card image cap">
+                <%if FastImage.size(s.picture) == nil %>
+                    <%= image_tag('/alt.png', :class => "card-img-top", :alt => "Card image cap") %>
+                <%else%>
+                    <%= image_tag(s.picture, :class => "card-img-top", :alt => "Card image cap") %>
+                <%end%>
                 <div class="card-body">
                     <h5 class="card-title"><%=s.title%></h5>
                     <div>           
