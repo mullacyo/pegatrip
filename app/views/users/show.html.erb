@@ -43,8 +43,10 @@
 			    </div>
 			    <div class="body">
 			    	<%if trip.actions.where(type: "Sightseeing").present? %>
-			    		<%= image_tag(trip.actions.where(type: "Sightseeing").first.picture, :style => "width: 50%; margin-left: 20px; border-radius: 100%") %>
-			    	<%end%>
+			    		<%= image_tag(trip.actions.where(type: "Sightseeing").first.picture, :style => "height: 180px; width: 180px; margin-left: 20px; border-radius: 100%; object-fit: cover") %>
+			    	<%else%>
+			    		<%= image_tag('/alt.png', :style => "height: 180px; width: 180px; margin-left: 20px; border-radius: 100%; object-fit: cover") %>					
+					<%end%>
 			    </div>
 			  </div> <br/>  <br/> <hr>
         <%end%>

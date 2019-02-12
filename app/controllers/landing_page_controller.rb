@@ -1,12 +1,6 @@
 class LandingPageController < ApplicationController
 	def index
-		@trips = []
-		while @trips.length > 6 do
-			trip = Trip.find(rand(1..15))
-			@trips << trip
-			@trips.uniq!
-		end
-
+		@trips = Trip.all.sample(4)
 
 		#list of all locations where courses happen
 		@all_locations = ["NYC",
