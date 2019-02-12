@@ -100,7 +100,9 @@
                           </section>
                           <section id="register_div">
                             <% @user = User.new %>
-                            <%= render partial: '/users/form' %>
+                            <%= form_for @user do |form| %>
+                              <%= render partial: '/users/form', object: form %>
+                            <% end %>
                           </section>
                         </div>
                    </div>

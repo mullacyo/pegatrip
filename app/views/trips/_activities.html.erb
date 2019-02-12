@@ -1,7 +1,7 @@
 <div class="content-title flex-container">
     <div>
-        <h3 class="d-inline">Activities</h3> 
-        <button type="button" class="btn btn-default btn-sm">
+        <h3 id="activities-title" class="d-inline" style="size: 1.5rem; margin-top: 20px">Activities</h3> 
+        <button type="button" class="btn btn-default btn-sm d-none">
                 <i class="fas fa-edit"></i>
         </button>    
     </div>
@@ -10,7 +10,11 @@
 <div class="activities-container d-flex justify-content-center" style="flex-grow">
     <% @activities[x..y].each_with_index do |a, n| %>
         <div class="card" style="width: 18rem; overflow: hidden">
-                <img class="card-img-top" src=<%=a.picture%> alt="Card image cap" style="">
+                <%if FastImage.size(a.picture) == nil %>
+                    <%= image_tag('/alt.png', :class => "card-img-top", :alt => "Card image cap") %>
+                <%else%>
+                    <%= image_tag(a.picture, :class => "card-img-top", :alt => "Card image cap") %>
+                <%end%>
                 <div class="card-body">
                     <h5 class="card-title"><%=a.title%></h5>
                     <div>           

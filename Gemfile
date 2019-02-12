@@ -22,6 +22,8 @@ gem 'http'
 gem 'nokogiri'
 gem 'httparty'
 
+# To get dimensions
+gem 'fastimage'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'

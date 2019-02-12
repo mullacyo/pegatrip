@@ -327,6 +327,8 @@ class TripsController < ApplicationController
                 @foods_requests[-1]['review_count']],
         }
       
+        @start_date = params[:start_date]
+        @end_date = params[:end_date]
     end #end of index
 
     def new
