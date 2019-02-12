@@ -2,9 +2,13 @@
 <form class="form-inline justify-content-center text-light">
 	     <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="Coffee" aria-label="Search" name="term" required value="<%=params[:term]%>"> 
 	     <button class="btn my-2 my-sm-0 d-inline-block" style="color: white; background-color: #3ac9c6" type="submit">Search</button>
+
    	</form>
-  </div>
-</div>
+
+
+
+
+
 
 <% if params[:term].present?%>
 	<%= render "search"%>
