@@ -324,6 +324,20 @@ class ActionsController < Clearance::UsersController
 			@actions = @actions.where(type: params[:actiontype])
 		end
 
+
+        @actions_requests = []
+        @actios_ratings = []
+        @actions_reviews = []
+
+
+        @actions.each do |a|
+            @actions_requests << HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get("https://api.yelp.com/v3/businesses/#{a.api_reference}").parse
+        end
+
+        @actions_requests.each do |jsn|
+            @actios_ratings << jsn['rating']
+            @actions_reviews << jsn['review_count']
+        end
 	end
 
 	def destroy
@@ -339,17 +353,26 @@ class ActionsController < Clearance::UsersController
 	end 
 
 	def search
-		if params[:term]
-			@actions = @actions.search(params[:term]).records
-		end  
-	end 
+		if params[:term].present? 
+	 		@actions = @actions.where(type: params[:actiontype])
+	  
+		  	#Change to make a response flexible from a query method
+		  	response = HTTP.auth("Bearer #{ENV['YELP_API_KEY']}").get('https://api.yelp.com/v3/businesses/search?term=coffee&location=nyc')
+		  	@actions = response.parse['businesses']
+		 end
+	end
+
+	# def search
+	# 	if params[:term]
+	# 		@actions = @actions.search(params[:term]).records
+	# 	end  
+	# end 
 
 
 	def show
 		@actiontrip = ActionsTrip.new(action_id: params[:id], trip_id: params[:trip_id])
 
 		if @actiontrip.save
-			flash[:success] = "Activity added to trip"
 			redirect_to trip_path(params[:trip_id])
 		end
 

@@ -1,10 +1,24 @@
 
+<form class="form-inline justify-content-center text-light">
+	     <input class="form-control mr-sm-2 d-inline-block" type="search" placeholder="Coffee" aria-label="Search" name="term" required value="<%=params[:term]%>"> 
+	     <button class="btn my-2 my-sm-0 d-inline-block" style="color: white; background-color: #3ac9c6" type="submit">Search</button>
+   	</form>
+  </div>
+</div>
 
-	<% @actions.each do |x| %>
-		<div class="card actions">
-			<div class="card-body">
-				<h5 class="card-title"><%=x.title%></h5>
-				</br>
+<% if params[:term].present?%>
+	<%= render "search"%>
+<%end%>
+
+	<div id="columns">
+	<% @actions.each_with_index do |x, ind| %>
+
+		<figure>
+			<% if x.picture != nil %>
+					<%= image_tag x.picture %>
+	  		<%end%>
+			<figcaption>
+				<h5><%=x.title%></h5>	
 				<p class="card-text">
 					<%= x.type %>
 				</p>
@@ -14,24 +28,23 @@
 					<%= x.location %>
 				</br>
 					<%= x.time %>
-				</br>
-					<%= x.price %>
-				</br>	
-				 	<%= x.id %>
-				</br>	
-					<% if x.picture != nil %>
-					<%= image_tag x.picture %>
-					</br>
-					<% end %>
-	<%= link_to 'Add action to trip', trip_action_create_path(params[:trip_id], x.id, method: :patch) %>
-			</div>
-		</div>
+					</br>	
+				<div>           
+                    <%= image_tag match_stars(@actios_ratings[ind], "regular")%> based on <%=link_to "#{@actions_reviews[ind]} reviews from Yelp", x.link %>
+                </div></br>
+				
+				<%= link_to 'Add to a trip', trip_action_create_path(params[:trip_id], x.id, method: :patch), class: "btn btn-outline", style: "color: #3ac9c6; border-color: #3ac9c6"%>
 
-
-	<% end %>
-
+			</figcaption>
+		</figure>
 	
-
+	<% end %>
+  
+  </div>
+	
+<script>
+	$('#search').hide()
+</script>
 
 
 
