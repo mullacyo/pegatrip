@@ -9,7 +9,7 @@
           <% end %>
 </div>
 
-	<div id="columns">
+<div id="columns">
 	<% @actions.each_with_index do |x, ind| %>
 
 		<figure>
@@ -28,13 +28,12 @@
 				</br>
 					<%= x.time %>
 					</br>	
-
 				<div>          
 				<% if x.api_source == "Yelp" %>
                     <%= image_tag match_stars(@actions_ratings[ind], "regular")%> based on <%=link_to "#{@actions_reviews[ind]} reviews from Yelp", x.link %>
                 <%end %>
-                
-                </div></br>
+
+				</div></br>
 				
 				<%= link_to 'Add to a trip', trip_action_create_path(params[:trip_id], x.id, method: :patch), class: "btn btn-outline", style: "color: #3ac9c6; border-color: #3ac9c6"%>
 
@@ -43,7 +42,7 @@
 	
 	<% end %>
   
-  </div>
+</div>
 	
 <script>
 	$('#search').hide()
