@@ -306,7 +306,10 @@ class ActionsController < Clearance::UsersController
 						@action.price = x['priceRanges'][0]['min']
 					end 
 
-				if Action.find_by(title: x['name'] == nil)
+				if Action.find_by(title: x['name'] == nil) 
+
+
+
 				@action.save
 				@array_of_events << @action
 				end 
