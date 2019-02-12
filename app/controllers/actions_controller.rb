@@ -278,8 +278,8 @@ class ActionsController < Clearance::UsersController
 	903 => "Madrid"
 	}
 
-	if citycodes.has_key?("#{@trip.location}")
-		y = citycodes.key("#{@trip.location}")
+	if citycodes.has_value?(@trip.location)
+		y = citycodes.key(@trip.location)
 
 		link = "https://app.ticketmaster.com/discovery/v2/events.json?DmaId=#{y}&apikey=fPY640wwjLICeCGvIvXzrSxAdb6gCbcu"
 	
@@ -306,7 +306,7 @@ class ActionsController < Clearance::UsersController
 						@action.price = x['priceRanges'][0]['min']
 					end 
 
-				if Action.find_by(title: x['name'] == nil)
+				if Action.find_by(title: x['name']) == nil
 				@action.save
 				@array_of_events << @action
 				end 
