@@ -15,6 +15,10 @@ gem "clearance"
 # For seeding and testing database
 gem 'faker'
 
+
+# Heroku gem
+gem 'rails_12factor', group: :production
+
 # For Yelp API usage
 gem 'http'
 
