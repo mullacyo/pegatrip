@@ -12,11 +12,11 @@ module TripsHelper
 	end
 
 	def match_stars(float, size)
-		folder_path = "yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}"
+		folder_path = "public/yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}"
 	end
 
 	def match_stars_at_zoom(float, size, zoom)
-		folder_path = "assets/images/yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}@#{zoom}x"
+		folder_path = "public/yelp_stars/web_and_ios/#{size}/#{size}_#{float_path(float)}@#{zoom}x"
 	end
 
 end
