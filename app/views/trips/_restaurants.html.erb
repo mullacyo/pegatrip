@@ -16,11 +16,11 @@
                 <div class="card-body">
                     <h5 class="card-title"><%=r.title%></h5>
                     <div>           
-                        <%= image_tag match_stars(@ratings['foods'][x+n], "regular")%> based on <%=link_to "#{@reviews['foods'][x+n]} reviews", r.link %> 
+                        <%#= image_tag match_stars(@ratings['foods'][x+n], "regular")%> <!-- based on --> <%=link_to "#{@reviews['foods'][x+n]} reviews", r.link %> 
                     </div>
-                    <div class="float-right align-bottom" style="vertical-align: bottom">
-                        Powered by <%= image_tag "yelp_logo/Yelp_trademark_RGB_outline", :style => "width: 80px; margin: 0px" %>
-                    </div>
+                    <!-- <div class="float-right align-bottom" style="vertical-align: bottom">
+                        Powered by <%#= image_tag "yelp_logo/Yelp_trademark_RGB_outline", :style => "width: 80px; margin: 0px" %>
+                    </div> -->
                     <p class="actionid d-none"><%=r.id%></p>
                </div>     
         </div>
