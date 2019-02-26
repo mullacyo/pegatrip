@@ -30,7 +30,7 @@
 					</br>	
 				<div>          
 				<% if x.api_source == "Yelp" %>
-                    <%= image_tag match_stars(@actions_ratings[ind], "regular")%> based on <%=link_to "#{@actions_reviews[ind]} reviews from Yelp", x.link %>
+                    <%=link_to "#{@actions_reviews[ind]} reviews from Yelp", x.link %>
                 <%end %>
 
 				</div></br>
