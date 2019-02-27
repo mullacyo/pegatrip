@@ -38,7 +38,7 @@
                     <h5 class="card-title"><%=link_to "#{a.title}", a.link%></h5>
                     <p class="card-text"><%=a.description%></p>
                      <div>           
-                        <%= image_tag match_stars(@ratings['activities'][ind], "regular")%> based on <%=link_to "#{@reviews['activities'][ind]} reviews from Yelp", a.link %> 
+                       <%=link_to "#{@reviews['activities'][ind]} reviews from Yelp", a.link %> 
                     </div>
                     <%=link_to "Delete", trip_action_path(params[:id], a.id), method: :delete, data: { confirm: 'Are you sure you want to delete this action?' }, :class => "btn btn-danger float-right"%>
                 </div>
@@ -71,7 +71,7 @@
                     <h5 class="card-title"><%=link_to "#{f.title}", f.link %></h5>
                     <p class="card-text"><%=f.description%></p>
                      <div>           
-                        <%= image_tag match_stars(@ratings['foods'][ind], "regular")%> based on <%=link_to "#{@reviews['foods'][ind]} reviews from Yelp", f.link %> 
+                        <%=link_to "#{@reviews['foods'][ind]} reviews from Yelp", f.link %> 
                     </div>
                     <%=link_to "Delete", trip_action_path(params[:id], f.id), method: :delete, data: { confirm: 'Are you sure you want to delete this action?' }, :class => "btn btn-danger float-right"%>
                 </div>
@@ -103,7 +103,7 @@
                     <h5 class="card-title"><%=link_to "#{s.title}", s.link%></h5>
                     <p class="card-text"><%=s.description%></p>
                     <div>           
-                        <%= image_tag match_stars(@ratings['sights'][ind], "regular")%> based on <%=link_to "#{@reviews['sights'][ind]} reviews from Yelp", s.link %> 
+                         <%=link_to "#{@reviews['sights'][ind]} reviews from Yelp", s.link %> 
                     </div>
                     <%=link_to "Delete", trip_action_path(params[:id], s.id), method: :delete, data: { confirm: 'Are you sure you want to delete this action?' }, :class => "btn btn-danger float-right"%>
                 </div>
