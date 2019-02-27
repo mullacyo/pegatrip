@@ -1,57 +1,57 @@
 <div class="container mx-auto mt-5">
-<div class= "profile">
+	<div class= "profile">
+		<div class="row">
+   			<div class="col-6">
+				<div class= "name">
+					<h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+				</div>
+				<p>Email: <%=@user.email%> </p>
+				<% if @user.interest == nil %>
+					<p> Interest:<i> You don't have any interests now. Please go to <b>"Edit profile"</b> to add an activity that you would like to include in your random trips. </i></p>
+				<% else %>
+					<p>Interest: <%=@user.interest%></p>
+				<%end%>
+   			</div>
 
- <div class="row">
-   <div class="col-6">
-
-		<div class= "name">
-			<h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
-		</div>
-
-		<p>Email: <%=@user.email%> </p>
-		<% if @user.interest == nil %>
-			<p> Interest:<i> You don't have any interests now. Please go to <b>"Edit profile"</b> to add an activity that you would like to include in your random trips. </i></p>
-		<% else %>
-			<p>Interest: <%=@user.interest%></p>
-		<%end%>
-   </div>
-
-   <div class="col-6 mx-auto">
-			<% if @user.avatar.url == nil%>
-				<%= image_tag "/default_profile.png", :class => "profile-pic"%>
-			<% else %>
-			 	<%= image_tag @user.avatar.url, :class => "profile-pic"%> 
-			<% end %>
+   			<div class="col-6 mx-auto">
+				<% if @user.avatar.url == nil%>
+					<%= image_tag "/default_profile.png", :class => "profile-pic"%>
+				<% else %>
+				 	<%= image_tag @user.avatar.url, :class => "profile-pic"%> 
+				<% end %>
+			</div>
+ 		</div>
 	</div>
- </div>
 
-</div>
 <br/><br/> <hr> <br/>
 
-<% if @user.trips == [] %>
-	<p> You don't have any trips yet. </p>
+	<% if @user.trips == [] %>
+		<p> You don't have any trips yet. </p>
 	<% else %>
-			<div class="timeline mx-auto">
-    	<% @trips.each do |trip| %>
-			  <div class="entry">
-			    <div class="title">
-			    <%if trip.start_date != nil && trip.end_date != nil%>
-			      <h3>Start date: <%=trip.start_date.strftime('%a, %d %b %Y')%> <br/>End date: <%=trip.end_date.strftime('%a, %d %b %Y')%></h3>
-			      <%end%>
-			      <%= link_to trip.location, trip_path(trip.id)%><br/>
-			      <%= link_to "Add to my Google Calendar", redirect_path(trip.id)%>
-			    </div>
-			    <div class="body">
-			    	<%if trip.actions.where(type: "Sightseeing").present? %>
-			    		<%= image_tag(trip.actions.where(type: "Sightseeing").first.picture, :style => "height: 180px; width: 180px; margin-left: 20px; border-radius: 100%; object-fit: cover") %>
-			    	<%else%>
-			    		<%= image_tag('/alt.png', :style => "height: 180px; width: 180px; margin-left: 20px; border-radius: 100%; object-fit: cover") %>					
-					<%end%>
-			    </div>
-			  </div> <br/>  <br/> <hr>
-        <%end%>
-			</div>
-<%end%>
+		<div class="timeline mx-auto">
+	    	<% @trips.each do |trip| %>
+				 <div class="entry">
+				    <div class="title">
+					    <%if trip.start_date != nil && trip.end_date != nil%>
+					      	<h3>Start date: <%=trip.start_date.strftime('%a, %d %b %Y')%> <br/>End date: <%=trip.end_date.strftime('%a, %d %b %Y')%></h3>
+					    <%end%>
+
+				      	<%= link_to trip.location, trip_path(trip.id)%><br/>
+				      	<%= link_to "Add to my Google Calendar", redirect_path(trip.id)%>
+				    </div>
+				    <div class="body">
+				    	<%if trip.actions.where(type: "Sightseeing").present? %>
+				    		<%= image_tag(trip.actions.where(type: "Sightseeing").first.picture, :style => "height: 180px; width: 180px; margin-left: 20px; border-radius: 100%; object-fit: cover") %>
+				    	<%else%>
+				    		<%= image_tag('/alt.png', :style => "height: 180px; width: 180px; margin-left: 20px; border-radius: 100%; object-fit: cover") %>					
+						<%end%>
+				    </div>
+				 </div> 
+				 <hr style="margin-top: 200px">
+	        <%end%>
+		</div>
+	<%end%>
+</div>
 
 <script>
 	$('.navbar').css('border-bottom', '1px solid rgba(0,0,0,.1)')
